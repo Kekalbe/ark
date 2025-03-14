@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             clicar: document.querySelector('.viviana-p'),
             novoTextoName: 'Viviana',
-            imagem: 'Personagens Seletor\\Viviana_Elite_2.webp',
+            imagem: 'Personagens Seletor/Viviana_Elite_2.webp',
             elementos: {
                 name: document.querySelector('.name'),
                 imagemElemento: document.querySelector('.imagem')
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             clicar: document.querySelector('.amiya-p'),
             novoTextoName: 'Amiya',
-            imagem: 'Personagens Seletor\\Amiya_(Medic).webp',
+            imagem: 'Personagens Seletor/Amiya_(Medic).webp',
             elementos: {
                 name: document.querySelector('.name'),
                 imagemElemento: document.querySelector('.imagem')
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             clicar: document.querySelector('.civilight-p'),
             novoTextoName: 'Civilight Eterna',
-            imagem: 'Personagens Seletor\\Civilight_Eterna_Elite_2.webp',
+            imagem: 'Personagens Seletor/Civilight_Eterna_Elite_2.webp',
             elementos: {
                 name: document.querySelector('.name'),
                 imagemElemento: document.querySelector('.imagem')
