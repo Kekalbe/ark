@@ -27,3 +27,5 @@ const personagens = [
     }
     }
     ];
+
+    export { personagens };
