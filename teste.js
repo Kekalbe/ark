@@ -1,5 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const personagens = [
+const personagens = [
         {
             clicar: document.querySelector('.viviana-p'),
             novoTextoName: 'Viviana',
@@ -37,4 +36,3 @@ document.addEventListener('DOMContentLoaded', function() {
             personagem.elementos.imagemElemento.src = personagem.imagem;
         });
     });
-});
