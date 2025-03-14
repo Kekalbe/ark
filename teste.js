@@ -1,4 +1,4 @@
-const personagens = [
+export const personagens = [
     {
       clicar: document.querySelector('.viviana-p'),
       novoTextoName: 'Viviana',
