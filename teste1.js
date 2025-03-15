@@ -1,39 +1,48 @@
 const personagens = [
     {
-        classe: 'viviana-p',
-        nome: 'Viviana',
-        imagem: 'https://ark-1qo.pages.dev/PersonagensSeletor/Viviana_Elite_2.webp'
+        clicar: document.querySelector('.viviana-p'),
+        novoTextoName: 'Viviana',
+        imagem: 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@refs/heads/master/PersonagensSeletor/Viviana/Viviana_Elite_2.webp',
+        elementos: {
+            name: document.querySelector('.name'),
+            imagemElemento: document.querySelector('.imagem-p img') // Agora garantindo que está pegando o <img>
+        }
     },
     {
-        classe: 'amiya-p',
-        nome: 'Amiya',
-        imagem: 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@refs/heads/master/PersonagensSeletor/Amiya%20Medic/Amiya_(Medic).webp'
+        clicar: document.querySelector('.amiya-p'),
+        novoTextoName: 'Amiya',
+        imagem: 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@refs/heads/master/PersonagensSeletor/Amiya%20Medic/Amiya_(Medic).webp',
+        elementos: {
+            name: document.querySelector('.name'),
+            imagemElemento: document.querySelector('.imagem-p img') // Garantindo que é o <img>
+        }
     }
 ];
 
-// Selecionando elementos HTML
-const nomeElemento = document.querySelector('.name');
-const imagemElemento = document.querySelector('.imagem-p img');
-
-// Adicionando evento de clique para cada personagem
-personagens.forEach(personagem => {
-    const botao = document.querySelector(`.${personagem.classe}`);
-    if (!botao) {
-        console.warn(`Botão não encontrado para: ${personagem.nome}`);
+// Verifica e adiciona os eventos de clique para cada personagem
+personagens.forEach(function(personagem) {
+    if (!personagem.clicar) {
+        console.warn(`Elemento não encontrado para: ${personagem.novoTextoName}`);
         return;
     }
 
-    botao.addEventListener('click', () => {
-        switch (personagem.nome) {
-            case 'Viviana':
-            case 'Amiya':
-                nomeElemento.textContent = personagem.nome;
-                imagemElemento.src = personagem.imagem;
-                imagemElemento.crossOrigin = "anonymous"; // Se necessário
-                console.log(`Alterado para ${personagem.nome}`);
-                break;
-            default:
-                console.warn(`Personagem não reconhecido: ${personagem.nome}`);
+    personagem.clicar.addEventListener('click', function() {
+        console.log(`Alterando imagem para: ${personagem.imagem}`);
+
+        // Atualiza o nome, se existir
+        if (personagem.elementos.name) {
+            personagem.elementos.name.textContent = personagem.novoTextoName;
+        } else {
+            console.warn(`Elemento de nome não encontrado para: ${personagem.novoTextoName}`);
+        }
+
+        // Atualiza a imagem, se existir
+        if (personagem.elementos.imagemElemento) {
+            personagem.elementos.imagemElemento.removeAttribute('srcset'); // Remove versões alternativas
+            personagem.elementos.imagemElemento.crossOrigin = "anonymous"; // Define crossOrigin
+            personagem.elementos.imagemElemento.src = personagem.imagem; // Define a nova imagem
+        } else {
+            console.warn(`Elemento de imagem não encontrado para: ${personagem.novoTextoName}`);
         }
     });
 });
