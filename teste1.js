@@ -13,7 +13,7 @@ const personagens = [
 
 // Selecionando elementos HTML
 const nomeElemento = document.querySelector('.name');
-const imagemElemento = document.querySelector('.elementor-element-43c34b5 img');
+const imagemElemento = document.querySelector('.elementor-element-43c34b5').style.backgroundImage = "url('https://arknights.wiki.gg/images/0/0b/Viviana_Skin_1.png?format=original')";
 
 // Adicionando evento de clique para cada personagem
 personagens.forEach(personagem => {
