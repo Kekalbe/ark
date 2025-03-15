@@ -13,7 +13,7 @@ const personagens = [
 
 // Selecionando elementos HTML
 const nomeElemento = document.querySelector('.name');
-const imagemElemento = document.querySelector('.imagem-p');
+const imagemElemento = document.querySelector('.elementor-element-43c34b5 img');
 
 // Adicionando evento de clique para cada personagem
 personagens.forEach(personagem => {
