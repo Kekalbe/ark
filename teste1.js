@@ -17,11 +17,11 @@ jQuery(document).ready(function($) {
 
         switch (character) {
             case 'viviana':
-                newImageUrl = 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@master/PersonagensSeletor/Viviana/Viviana_Elite_2.webp?' + new Date().getTime();  // Adicionando um timestamp
+                newImageUrl = 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@master/PersonagensSeletor/Viviana/Viviana_Elite_2.webp';
                 $('#name').text('Viviana');
                 break;
             case 'amiya':
-                newImageUrl = 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@master/PersonagensSeletor/Amiya%20Medic/Amiya_(Medic).webp?' + new Date().getTime();  // Adicionando um timestamp
+                newImageUrl = 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@master/PersonagensSeletor/Amiya%20Medic/Amiya_(Medic).webp';
                 $('#name').text('Amiya');
                 break;
             default:
@@ -29,14 +29,8 @@ jQuery(document).ready(function($) {
                 return;
         }
 
-        // Alterar o src da imagem com timestamp
-        $('img[data-id="ed5692c"]').fadeOut(300, function() {
-            $('img[data-id="ed5692c"]').attr('src', newImageUrl); // Mudando a imagem
-            console.log("Imagem após troca:", $('img[data-id="ed5692c"]').attr('src'));  // Verificando a troca
-
-            $('img[data-id="ed5692c"]').fadeIn(300, function() {
-                console.log('Imagem carregada com sucesso:', newImageUrl);
-            });
-        });
+        // Trocar apenas o src da imagem, sem animação por enquanto
+        $('img[data-id="ed5692c"]').attr('src', newImageUrl); // Mudando a imagem
+        console.log("Imagem após troca:", $('img[data-id="ed5692c"]').attr('src'));  // Verificando a troca
     }
 });
