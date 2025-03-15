@@ -11,7 +11,7 @@ const personagens = [
     {
         clicar: document.querySelector('.amiya-p'),
         novoTextoName: 'Amiya',
-        imagem: 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@refs/heads/master/PersonagensSeletor/Amiya%20Medic/Amiya_(Medic).webp',
+        imagem: 'https://darkmoon.wuaze.com/wp-content/uploads/2025/03/Amiya_Medic-1.webp',
         elementos: {
             name: document.querySelector('.name'),
             imagemElemento: document.querySelector('.imagem-p')
