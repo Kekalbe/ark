@@ -1,12 +1,11 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const personagens = [
+const personagens = [
         {
             clicar: document.querySelector('.viviana-p'),
             novoTextoName: 'Viviana',
             imagem: 'https://ark-1qo.pages.dev/PersonagensSeletor/Viviana_Elite_2.webp',
             elementos: {
                 name: document.querySelector('.name'),
-                imagemElemento: document.querySelector('.imagem')
+                imagemElemento: document.querySelector('.imagem-p')
             }
         },
         {
@@ -15,21 +14,25 @@ document.addEventListener('DOMContentLoaded', function() {
             imagem: 'https://ark-1qo.pages.dev/PersonagensSeletor/Amiya_(Medic).webp',
             elementos: {
                 name: document.querySelector('.name'),
-                imagemElemento: document.querySelector('.imagem')
+                imagemElemento: document.querySelector('.imagem-p')
+            }
+        },
+        {
+            clicar: document.querySelector('.civilight-p'),
+            novoTextoName: 'Civilight Eterna',
+            imagem: 'https://ark-1qo.pages.dev/PersonagensSeletor/Civilight_Eterna_Elite_2.webp',
+            elementos: {
+                name: document.querySelector('.name'),
+                imagemElemento: document.querySelector('.imagem-p')
             }
         }
     ];
 
+    // Coloque o restante do seu código aqui
     personagens.forEach(function(personagem) {
-        if (personagem.clicar) { // Verifica se o botão existe antes de adicionar o evento
-            personagem.clicar.addEventListener('click', function() {
-                if (personagem.elementos.name && personagem.elementos.imagemElemento) {
-                    personagem.elementos.name.textContent = personagem.novoTextoName;
-                    personagem.elementos.imagemElemento.src = personagem.imagem;
-                }
-            });
-        } else {
-            console.warn(`Elemento ${personagem.novoTextoName} não encontrado!`);
-        }
+        personagem.clicar.addEventListener('click', function() {
+            // Alterando os textos e outros dados
+            personagem.elementos.name.textContent = personagem.novoTextoName;
+            personagem.elementos.imagemElemento.src = personagem.imagem;
+        });
     });
-});
