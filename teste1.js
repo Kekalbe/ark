@@ -2,7 +2,7 @@ const personagens = [
     {
         clicar: document.querySelector('.viviana-p'),
         novoTextoName: 'Viviana',
-        imagem: 'https://ark-1qo.pages.dev/PersonagensSeletor/Viviana_Elite_2.webp',
+        imagem: 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@refs/heads/master/PersonagensSeletor/Viviana/Viviana_Elite_2.webp',
         elementos: {
             name: document.querySelector('.name'),
             imagemElemento: document.querySelector('.imagem-p')
@@ -11,7 +11,7 @@ const personagens = [
     {
         clicar: document.querySelector('.amiya-p'),
         novoTextoName: 'Amiya',
-        imagem: 'https://darkmoon.wuaze.com/wp-content/uploads/2025/03/Amiya_Medic-1.webp',
+        imagem: 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@refs/heads/master/PersonagensSeletor/Amiya%20Medic/Amiya_(Medic).webp',
         elementos: {
             name: document.querySelector('.name'),
             imagemElemento: document.querySelector('.imagem-p')
