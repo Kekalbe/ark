@@ -21,6 +21,6 @@ jQuery(document).ready(function($) {
             default:
                 console.log('Personagem desconhecido');
                 break;
-            }
         }
-    });
+    }
+});
