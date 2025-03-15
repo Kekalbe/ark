@@ -2,7 +2,7 @@ const personagens = [
     {
         clicar: document.querySelector('.viviana-p'),
         novoTextoName: 'Viviana',
-        nomeImagem: viviana,
+        nomeImagem: 'viviana',
         elementos: {
             name: document.querySelector('.name'),
             imagemElemento: document.querySelector('.imagem-p')
@@ -11,7 +11,7 @@ const personagens = [
     {
         clicar: document.querySelector('.amiya-p'),
         novoTextoName: 'Amiya',
-        nomeImagem: amiya,
+        nomeImagem: 'amiya',
         elementos: {
             name: document.querySelector('.name'),
             imagemElemento: document.querySelector('.imagem-p')
