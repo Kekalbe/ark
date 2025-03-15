@@ -19,11 +19,26 @@ const personagens = [
         }
     ];
 
-    // Coloque o restante do seu código aqui
-    personagens.forEach(function(personagem) {
-        personagem.clicar.addEventListener('click', function() {
-            // Alterando os textos e outros dados
+// Coloque o restante do seu código aqui
+personagens.forEach(function(personagem) {
+    if (!personagem.clicar) {
+        console.warn(`Elemento não encontrado para: ${personagem.novoTextoName}`);
+        return;
+    }
+
+    personagem.clicar.addEventListener('click', function() {
+        console.log(`Alterando imagem para: ${personagem.imagem}`);
+
+        if (personagem.elementos.name) {
             personagem.elementos.name.textContent = personagem.novoTextoName;
-            personagem.elementos.imagemElemento.src = personagem.imagem;
-        });
+        } else {
+            console.warn(`Elemento de nome não encontrado para: ${personagem.novoTextoName}`);
+        }
+
+        if (personagem.elementos.imagemElemento) {
+            personagem.elementos.imagemElemento.setAttribute('src', personagem.imagem);
+        } else {
+            console.warn(`Elemento de imagem não encontrado para: ${personagem.novoTextoName}`);
+        }
     });
+});
