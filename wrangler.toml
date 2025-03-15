@@ -1,0 +1,4 @@
+name = "ark"  # Nome do seu Worker
+type = "javascript"  # Ou "module" se estiver usando ESModules
+main = "teste.js"  # Caminho para o arquivo JS
+compatibility_date = "2024-03-14"  # Data de compatibilidade
