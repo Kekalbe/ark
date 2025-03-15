@@ -11,8 +11,18 @@ jQuery(document).ready(function($) {
     function changeCharacter(character) {
         let newImageUrl;
 
-        // Verifique o src da imagem atual antes de qualquer troca
-        let currentImageUrl = $('img[data-id="ed5692c"]').attr('src');
+        // Verifique todos os elementos img para ver se o seletor está correto
+        console.log("Imagens disponíveis:", $('img'));
+
+        // Tente selecionar diretamente a imagem com o data-id "ed5692c"
+        let imgElement = $('img[data-id="ed5692c"]');
+        if (imgElement.length === 0) {
+            console.error('Imagem com data-id="ed5692c" não encontrada');
+            return;
+        }
+
+        // Se a imagem foi encontrada, continue a troca
+        let currentImageUrl = imgElement.attr('src');
         console.log("Imagem atual:", currentImageUrl);
 
         switch (character) {
@@ -29,8 +39,8 @@ jQuery(document).ready(function($) {
                 return;
         }
 
-        // Trocar apenas o src da imagem, sem animação por enquanto
-        $('img[data-id="ed5692c"]').attr('src', newImageUrl); // Mudando a imagem
-        console.log("Imagem após troca:", $('img[data-id="ed5692c"]').attr('src'));  // Verificando a troca
+        // Trocar o src da imagem
+        imgElement.attr('src', newImageUrl);
+        console.log("Imagem após troca:", imgElement.attr('src'));  // Verificando a troca
     }
 });
