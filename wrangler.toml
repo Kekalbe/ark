@@ -1,4 +1,10 @@
-name = "ark"  # Nome do seu Worker
-type = "javascript"  # Ou "module" se estiver usando ESModules
-main = "teste1.js"  # Caminho para o arquivo JS
-compatibility_date = "2024-03-14"  # Data de compatibilidade
+name = "ark"
+type = "javascript"  # ou "webpack", dependendo do seu setup
+
+# Aqui está a configuração necessária para o Pages
+[site]
+bucket = "./dist"  # Ou o diretório onde os arquivos finais estão
+entry-point = "."
+
+# Adicione esta linha para o Pages reconhecer o diretório correto:
+pages_build_output_dir = "./dist"  # Altere se necessário
