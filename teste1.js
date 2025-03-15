@@ -16,15 +16,6 @@ const personagens = [
                 name: document.querySelector('.name'),
                 imagemElemento: document.querySelector('.imagem-p')
             }
-        },
-        {
-            clicar: document.querySelector('.civilight-p'),
-            novoTextoName: 'Civilight Eterna',
-            imagem: 'https://ark-1qo.pages.dev/PersonagensSeletor/Civilight_Eterna_Elite_2.webp',
-            elementos: {
-                name: document.querySelector('.name'),
-                imagemElemento: document.querySelector('.imagem-p')
-            }
         }
     ];
 
