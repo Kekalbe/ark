@@ -5,7 +5,7 @@ const personagens = [
         imagem: 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@refs/heads/master/PersonagensSeletor/Viviana/Viviana_Elite_2.webp',
         elementos: {
             name: document.querySelector('.name'),
-            imagemElemento: document.querySelector('.imagem-p img') // Agora garantindo que está pegando o <img>
+            imagemElemento: document.querySelector('.imagem-p img')
         }
     },
     {
@@ -14,12 +14,12 @@ const personagens = [
         imagem: 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@refs/heads/master/PersonagensSeletor/Amiya%20Medic/Amiya_(Medic).webp',
         elementos: {
             name: document.querySelector('.name'),
-            imagemElemento: document.querySelector('.imagem-p img') // Garantindo que é o <img>
+            imagemElemento: document.querySelector('.imagem-p img')
         }
     }
 ];
 
-// Verifica e adiciona os eventos de clique para cada personagem
+// Adiciona eventos de clique para cada personagem
 personagens.forEach(function(personagem) {
     if (!personagem.clicar) {
         console.warn(`Elemento não encontrado para: ${personagem.novoTextoName}`);
@@ -36,10 +36,10 @@ personagens.forEach(function(personagem) {
             console.warn(`Elemento de nome não encontrado para: ${personagem.novoTextoName}`);
         }
 
-        // Atualiza a imagem, se existir
+        // Atualiza a imagem e remove srcset
         if (personagem.elementos.imagemElemento) {
-            personagem.elementos.imagemElemento.removeAttribute('srcset'); // Remove versões alternativas
-            personagem.elementos.imagemElemento.crossOrigin = "anonymous"; // Define crossOrigin
+            personagem.elementos.imagemElemento.removeAttribute('srcset'); // Remove srcset
+            personagem.elementos.imagemElemento.crossOrigin = "anonymous"; // Mantém o crossOrigin
             personagem.elementos.imagemElemento.src = personagem.imagem; // Define a nova imagem
         } else {
             console.warn(`Elemento de imagem não encontrado para: ${personagem.novoTextoName}`);
