@@ -5,7 +5,7 @@ const personagens = [
             imagem: 'Personagens Seletor/Viviana_Elite_2.webp',
             elementos: {
                 name: document.querySelector('.name'),
-                imagemElemento: document.querySelector('.imagem')
+                imagemElemento: document.querySelector('.imagem-p')
             }
         },
         {
@@ -14,7 +14,7 @@ const personagens = [
             imagem: 'Personagens Seletor/Amiya_(Medic).webp',
             elementos: {
                 name: document.querySelector('.name'),
-                imagemElemento: document.querySelector('.imagem')
+                imagemElemento: document.querySelector('.imagem-p')
             }
         },
         {
@@ -23,7 +23,7 @@ const personagens = [
             imagem: 'Personagens Seletor/Civilight_Eterna_Elite_2.webp',
             elementos: {
                 name: document.querySelector('.name'),
-                imagemElemento: document.querySelector('.imagem')
+                imagemElemento: document.querySelector('.imagem-p')
             }
         }
     ];
