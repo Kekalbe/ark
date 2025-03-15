@@ -9,22 +9,22 @@ jQuery(document).ready(function($) {
     });
 
     function changeCharacter(character) {
-        let newImageUrl;
+        // Selecionando a imagem com o novo data-id="43c34b5"
+        let imgElement = $('img[data-id="43c34b5"]');
 
-        // Verifique todos os elementos img para ver se o seletor está correto
-        console.log("Imagens disponíveis:", $('img'));
-
-        // Tente selecionar diretamente a imagem com o data-id "ed5692c"
-        let imgElement = $('img[data-id="ed5692c"]');
+        // Verificando se a imagem foi encontrada
         if (imgElement.length === 0) {
-            console.error('Imagem com data-id="ed5692c" não encontrada');
+            console.error('Imagem com data-id="43c34b5" não encontrada');
             return;
+        } else {
+            console.log('Imagem encontrada:', imgElement);
         }
 
-        // Se a imagem foi encontrada, continue a troca
+        let newImageUrl;
         let currentImageUrl = imgElement.attr('src');
         console.log("Imagem atual:", currentImageUrl);
 
+        // Definindo as novas imagens dependendo do personagem clicado
         switch (character) {
             case 'viviana':
                 newImageUrl = 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@master/PersonagensSeletor/Viviana/Viviana_Elite_2.webp';
@@ -39,7 +39,7 @@ jQuery(document).ready(function($) {
                 return;
         }
 
-        // Trocar o src da imagem
+        // Mudando o src da imagem apenas se o elemento foi encontrado
         imgElement.attr('src', newImageUrl);
         console.log("Imagem após troca:", imgElement.attr('src'));  // Verificando a troca
     }
