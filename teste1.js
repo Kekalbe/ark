@@ -4,6 +4,7 @@ jQuery(document).ready(function($) {
             clicar: $('.viviana-p'),
             novoTextoName: 'Viviana',
             nomeImagem: 'viviana',
+            imagemUrl: 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@master/PersonagensSeletor/Viviana/Viviana_Elite_2.webp',
             elementos: {
                 name: $('.name'),
                 imagemElemento: $('.imagem-p')
@@ -13,6 +14,7 @@ jQuery(document).ready(function($) {
             clicar: $('.amiya-p'),
             novoTextoName: 'Amiya',
             nomeImagem: 'amiya',
+            imagemUrl: 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@master/PersonagensSeletor/Amiya%20Medic/Amiya_(Medic).webp',
             elementos: {
                 name: $('.name'),
                 imagemElemento: $('.imagem-p')
@@ -20,38 +22,33 @@ jQuery(document).ready(function($) {
         }
     ];
 
-    const imagensPersonagens = {
-        viviana: 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@master/PersonagensSeletor/Viviana/Viviana_Elite_2.webp',
-        amiya: 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@master/PersonagensSeletor/Amiya%20Medic/Amiya_(Medic).webp'
-    };
-
-    personagens.forEach(function (personagem) {
+    personagens.forEach(function(personagem) {
         if (personagem.clicar.length === 0) {
             console.warn(`Elemento não encontrado para: ${personagem.novoTextoName}`);
             return;
         }
 
-        personagem.clicar.on('click', function () {
-            console.log(`Alterando imagem para: ${imagensPersonagens[personagem.nomeImagem]}`);
+        personagem.clicar.on('click', function() {
+            console.log(`Alterando imagem para: ${personagem.imagemUrl}`);
 
+            // Troca o nome do personagem
             if (personagem.elementos.name.length > 0) {
                 personagem.elementos.name.text(personagem.novoTextoName);
             } else {
                 console.warn(`Elemento de nome não encontrado para: ${personagem.novoTextoName}`);
             }
 
+            // Remove qualquer imagem anterior e configura a nova imagem
             if (personagem.elementos.imagemElemento.length > 0) {
-                personagem.elementos.imagemElemento.attr('crossOrigin', 'anonymous'); // Configurar antes da troca
+                personagem.elementos.imagemElemento.fadeOut(300, function() {
+                    // Após a animação de fadeOut (remover a imagem anterior), muda a imagem
+                    personagem.elementos.imagemElemento.attr('src', personagem.imagemUrl);
 
-                personagem.elementos.imagemElemento.on('load', function() {
-                    console.log('Imagem carregada com sucesso:', imagensPersonagens[personagem.nomeImagem]);
+                    // Reaparece a imagem com a nova (fadeIn)
+                    personagem.elementos.imagemElemento.fadeIn(300, function() {
+                        console.log('Imagem carregada com sucesso:', personagem.imagemUrl);
+                    });
                 });
-
-                personagem.elementos.imagemElemento.on('error', function() {
-                    console.error('Erro ao carregar imagem:', imagensPersonagens[personagem.nomeImagem]);
-                });
-
-                personagem.elementos.imagemElemento.attr('src', imagensPersonagens[personagem.nomeImagem]);
             } else {
                 console.warn(`Elemento de imagem não encontrado para: ${personagem.novoTextoName}`);
             }
