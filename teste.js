@@ -2,7 +2,7 @@ const personagens = [
         {
             clicar: document.querySelector('.viviana-p'),
             novoTextoName: 'Viviana',
-            imagem: 'https://13cd1198.ark-1qo.pages.dev/PersonagensSeletor/Viviana_Elite_2.webp',
+            imagem: 'https://43ee0d29.ark-1qo.pages.dev/PersonagensSeletor/Viviana_Elite_2.webp',
             elementos: {
                 name: document.querySelector('.name'),
                 imagemElemento: document.querySelector('.imagem-p')
@@ -11,7 +11,7 @@ const personagens = [
         {
             clicar: document.querySelector('.amiya-p'),
             novoTextoName: 'Amiya',
-            imagem: 'https://13cd1198.ark-1qo.pages.dev/PersonagensSeletor/Amiya_(Medic).webp',
+            imagem: 'https://43ee0d29.ark-1qo.pages.dev/PersonagensSeletor/Amiya_(Medic).webp',
             elementos: {
                 name: document.querySelector('.name'),
                 imagemElemento: document.querySelector('.imagem-p')
@@ -20,7 +20,7 @@ const personagens = [
         {
             clicar: document.querySelector('.civilight-p'),
             novoTextoName: 'Civilight Eterna',
-            imagem: 'https://13cd1198.ark-1qo.pages.dev/PersonagensSeletor/Civilight_Eterna_Elite_2.webp',
+            imagem: 'https://43ee0d29.ark-1qo.pages.dev/PersonagensSeletor/Civilight_Eterna_Elite_2.webp',
             elementos: {
                 name: document.querySelector('.name'),
                 imagemElemento: document.querySelector('.imagem-p')
