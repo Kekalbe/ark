@@ -21,28 +21,33 @@ const personagens = [
 
 // Adiciona eventos de clique para cada personagem
 personagens.forEach(function(personagem) {
-    if (!personagem.clicar) {
-        console.warn(`Elemento não encontrado para: ${personagem.novoTextoName}`);
-        return;
-    }
+    if (!personagem.clicar) return;
 
-    personagem.clicar.addEventListener('click', function() {
+    personagem.clicar.addEventListener('click', function () {
         console.log(`Alterando imagem para: ${personagem.imagem}`);
 
-        // Atualiza o nome, se existir
+        // Atualiza o nome e aplica animação
         if (personagem.elementos.name) {
-            personagem.elementos.name.textContent = personagem.novoTextoName;
-        } else {
-            console.warn(`Elemento de nome não encontrado para: ${personagem.novoTextoName}`);
+            const nameElement = personagem.elementos.name;
+            nameElement.textContent = personagem.novoTextoName;
+
+            // Força a reexecução da animação
+            nameElement.style.animation = "none";
+            void nameElement.offsetWidth;
+            nameElement.style.animation = "fadeIn 1s ease-out forwards";
         }
 
-        // Atualiza a imagem e remove srcset
+        // Atualiza a imagem e aplica animação
         if (personagem.elementos.imagemElemento) {
-            personagem.elementos.imagemElemento.removeAttribute('srcset'); // Remove srcset
-            personagem.elementos.imagemElemento.crossOrigin = "anonymous"; // Mantém o crossOrigin
-            personagem.elementos.imagemElemento.src = personagem.imagem; // Define a nova imagem
-        } else {
-            console.warn(`Elemento de imagem não encontrado para: ${personagem.novoTextoName}`);
+            const imgElement = personagem.elementos.imagemElemento;
+            imgElement.removeAttribute('srcset'); // Remove srcset
+            imgElement.crossOrigin = "anonymous"; // Mantém o crossOrigin
+            imgElement.src = personagem.imagem; // Define a nova imagem
+
+            // Força a reexecução da animação
+            imgElement.style.animation = "none";
+            void imgElement.offsetWidth;
+            imgElement.style.animation = "fadeIn 1s ease-out forwards";
         }
     });
 });
