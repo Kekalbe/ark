@@ -1,18 +1,4 @@
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-/* Classe para ativar animação no nome */
-.animar-name {
-    animation: fadeIn 0.5s ease-out forwards;
-}
-
-/* Classe para ativar animação na imagem */
-.animar-imagem {
-    animation: fadeIn 0.5s ease-out forwards;
+.animar-comum {
+    opacity: 0;
+    animation: entradaImagem 1s ease-out forwards;
 }
