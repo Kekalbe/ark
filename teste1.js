@@ -47,7 +47,7 @@ personagens.forEach(function(personagem) {
             setTimeout(() => {
                 imgElement.src = personagem.imagem;
                 imgElement.classList.add('fade-in');
-            }, 100);
+            }, 90);
         }
     });
 });
