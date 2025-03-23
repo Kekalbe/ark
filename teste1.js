@@ -30,14 +30,11 @@ personagens.forEach(function(personagem) {
 
         // Troca do nome com animação
         if (name) {
-            name.classList.remove('entradaNome', 'animatingTexto'); 
-            name.style.opacity = "0"; // Garante que desapareça antes de mudar
-            
-            setTimeout(() => {
-                name.textContent = personagem.novoTextoName;
-                void name.offsetWidth; // Força reflow
-                name.classList.add('animatingTexto');
-            }, 50); // Pequeno delay para resetar a opacidade
+            name.classList.remove('entradaNome', 'animatingTexto');
+            void name.offsetWidth; // Força reflow para reiniciar a animação
+
+            name.textContent = personagem.novoTextoName;
+            name.classList.add('animatingTexto');
         }
 
         // Troca da imagem com animação
@@ -46,14 +43,12 @@ personagens.forEach(function(personagem) {
             imagemElemento.crossOrigin = "anonymous"; // Mantém o crossOrigin
 
             imagemElemento.classList.remove('entradaImagem', 'animatingImagem');
+            void imagemElemento.offsetWidth; // Força o reflow
 
-            setTimeout(() => {
-                imagemElemento.src = personagem.imagem;
-                imagemElemento.alt = personagem.novoTextoName;
-                imagemElemento.srcset = personagem.imagem;
-                void imagemElemento.offsetWidth; // Força o reflow
-                imagemElemento.classList.add('animatingImagem');
-            }, 50);
+            imagemElemento.src = personagem.imagem;
+            imagemElemento.alt = personagem.novoTextoName;
+            imagemElemento.srcset = personagem.imagem;
+            imagemElemento.classList.add('animatingImagem');
         }
     });
 });
