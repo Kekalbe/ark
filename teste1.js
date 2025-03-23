@@ -21,28 +21,26 @@ const personagens = [
 
 // Adiciona eventos de clique para cada personagem
 personagens.forEach(function(personagem) {
-    if (!personagem.clicar) {
-        console.warn(`Elemento não encontrado para: ${personagem.novoTextoName}`);
-        return;
-    }
+    if (!personagem.clicar) return;
 
     personagem.clicar.addEventListener('click', function() {
         console.log(`Alterando imagem para: ${personagem.imagem}`);
 
-        // Atualiza o nome, se existir
+        // Aplica a animação no nome e na imagem
         if (personagem.elementos.name) {
+            personagem.elementos.name.classList.remove('fade-in'); // Remove a classe para reiniciar a animação
+            void personagem.elementos.name.offsetWidth; // Reflow para resetar a animação
+            personagem.elementos.name.classList.add('fade-in'); // Aplica a animação
             personagem.elementos.name.textContent = personagem.novoTextoName;
-        } else {
-            console.warn(`Elemento de nome não encontrado para: ${personagem.novoTextoName}`);
         }
 
-        // Atualiza a imagem e remove srcset
         if (personagem.elementos.imagemElemento) {
-            personagem.elementos.imagemElemento.removeAttribute('srcset'); // Remove srcset
-            personagem.elementos.imagemElemento.crossOrigin = "anonymous"; // Mantém o crossOrigin
-            personagem.elementos.imagemElemento.src = personagem.imagem; // Define a nova imagem
-        } else {
-            console.warn(`Elemento de imagem não encontrado para: ${personagem.novoTextoName}`);
+            personagem.elementos.imagemElemento.classList.remove('fade-in');
+            void personagem.elementos.imagemElemento.offsetWidth;
+            personagem.elementos.imagemElemento.classList.add('fade-in');
+            personagem.elementos.imagemElemento.removeAttribute('srcset');
+            personagem.elementos.imagemElemento.crossOrigin = "anonymous";
+            personagem.elementos.imagemElemento.src = personagem.imagem;
         }
     });
 });
