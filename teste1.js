@@ -19,7 +19,6 @@ const personagens = [
     }
 ];
 
-// Adiciona eventos de clique para cada personagem
 personagens.forEach(function(personagem) {
     if (!personagem.clicar) return;
 
@@ -29,25 +28,23 @@ personagens.forEach(function(personagem) {
         // Atualiza o nome com animação
         if (personagem.elementos.name) {
             const nameElement = personagem.elementos.name;
-
-            nameElement.classList.remove('fade-in');
             nameElement.style.opacity = "0"; // Some antes de mudar o texto
+
             setTimeout(() => {
                 nameElement.textContent = personagem.novoTextoName;
-                nameElement.classList.add('fade-in');
-            }, 100); // Pequeno delay
+                nameElement.style.opacity = "1"; // Reaparece suavemente
+            }, 200);
         }
 
         // Atualiza a imagem com animação
         if (personagem.elementos.imagemElemento) {
             const imgElement = personagem.elementos.imagemElemento;
             
-            imgElement.classList.remove('fade-in');
             imgElement.style.opacity = "0"; // Some antes de mudar a imagem
             setTimeout(() => {
                 imgElement.src = personagem.imagem;
-                imgElement.classList.add('fade-in');
-            }, 90);
+                imgElement.style.opacity = "1"; // Reaparece suavemente
+            }, 200);
         }
     });
 });
