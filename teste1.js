@@ -26,28 +26,28 @@ personagens.forEach(function(personagem) {
     personagem.clicar.addEventListener('click', function () {
         console.log(`Alterando imagem para: ${personagem.imagem}`);
 
-        // Atualiza o nome e aplica animação
+        // Atualiza o nome e aplica animação corretamente
         if (personagem.elementos.name) {
             const nameElement = personagem.elementos.name;
             nameElement.textContent = personagem.novoTextoName;
 
-            // Força a reexecução da animação
-            nameElement.style.animation = "none";
-            void nameElement.offsetWidth;
-            nameElement.style.animation = "fadeIn 1s ease-out forwards";
+            // Remove e adiciona a classe para forçar a reexecução da animação
+            nameElement.classList.remove('fade-in');
+            void nameElement.offsetWidth; // Força o reflow
+            nameElement.classList.add('fade-in');
         }
 
-        // Atualiza a imagem e aplica animação
+        // Atualiza a imagem e aplica animação corretamente
         if (personagem.elementos.imagemElemento) {
             const imgElement = personagem.elementos.imagemElemento;
             imgElement.removeAttribute('srcset'); // Remove srcset
             imgElement.crossOrigin = "anonymous"; // Mantém o crossOrigin
             imgElement.src = personagem.imagem; // Define a nova imagem
 
-            // Força a reexecução da animação
-            imgElement.style.animation = "none";
-            void imgElement.offsetWidth;
-            imgElement.style.animation = "fadeIn 1s ease-out forwards";
+            // Remove e adiciona a classe para reiniciar a animação
+            imgElement.classList.remove('fade-in');
+            void imgElement.offsetWidth; // Força o reflow
+            imgElement.classList.add('fade-in');
         }
     });
 });
