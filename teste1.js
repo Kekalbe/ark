@@ -24,33 +24,22 @@ personagens.forEach(function(personagem) {
     if (!personagem.clicar) return;
 
     personagem.clicar.addEventListener('click', function () {
-        console.log(`Alterando imagem para: ${personagem.imagem}`);
+        console.log(`Alterando para: ${personagem.novoTextoName}`);
 
-        // Atualiza o nome e aplica animação corretamente
-        if (personagem.elementos.name) {
-            const nameElement = personagem.elementos.name;
+        const nameElement = personagem.elementos.name;
+        if (nameElement) {
+            // Aplica o fade-out
+            nameElement.classList.add('fade-out');
 
-            // Remove e adiciona a classe para forçar a reexecução da animação
-            nameElement.style.opacity = "0"; // Garante que desapareça antes de mudar
-            setTimeout(() => {
+            // Aguarda o fim da animação para mudar o texto e aplicar fade-in
+            nameElement.addEventListener('transitionend', function atualizarTexto() {
                 nameElement.textContent = personagem.novoTextoName;
-                nameElement.classList.remove('fade-in');
-                void nameElement.offsetWidth; // Força reflow
+                nameElement.classList.remove('fade-out');
                 nameElement.classList.add('fade-in');
-            }, 200); // Pequeno delay para resetar a opacidade
-        }
 
-        // Atualiza a imagem e aplica animação corretamente
-        if (personagem.elementos.imagemElemento) {
-            const imgElement = personagem.elementos.imagemElemento;
-            imgElement.removeAttribute('srcset'); // Remove srcset
-            imgElement.crossOrigin = "anonymous"; // Mantém o crossOrigin
-            imgElement.src = personagem.imagem; // Define a nova imagem
-
-            // Remove e adiciona a classe para reiniciar a animação
-            imgElement.classList.remove('fade-in');
-            void imgElement.offsetWidth; // Força o reflow
-            imgElement.classList.add('fade-in');
+                // Remove o listener para evitar múltiplas execuções
+                nameElement.removeEventListener('transitionend', atualizarTexto);
+            }, { once: true }); // 'once' garante que só execute uma vez
         }
     });
 });
