@@ -25,26 +25,31 @@ document.addEventListener("DOMContentLoaded", function () {
     personagens.forEach(function(personagem) {
         if (!personagem.clicar) return;
 
-        personagem.clicar.addEventListener('click', function () {
-            if (personagemAtual === personagem.novoTextoName) return;
-            personagemAtual = personagem.novoTextoName;
-
-            // Aplica animação ao nome
-            if (personagem.elementos.name) {
-                const el = personagem.elementos.name;
-                el.classList.remove('animar-comum');
-                void el.offsetWidth;
-                el.textContent = personagem.novoTextoName;
-                el.classList.add('animar-comum');
+        personagem.clicar.addEventListener('click', function() {
+            if (personagemAtual === personagem.novoTextoName) {
+                console.log(`Personagem ${personagem.novoTextoName} já está selecionado.`);
+                return;
             }
 
-            // Aplica animação à imagem
+            console.log(`Alterando para: ${personagem.novoTextoName}`);
+            personagemAtual = personagem.novoTextoName;
+
+            // Atualiza o nome com a classe de animação específica
+            if (personagem.elementos.name) {
+                personagem.elementos.name.classList.remove('animar-name'); 
+                void personagem.elementos.name.offsetWidth; // Reseta a classe forçando reflow
+                personagem.elementos.name.classList.add('animar-name');
+                personagem.elementos.name.textContent = personagem.novoTextoName;
+            }
+
+            // Atualiza a imagem com a classe de animação específica
             if (personagem.elementos.imagemElemento) {
-                const img = personagem.elementos.imagemElemento;
-                img.classList.remove('animar-comum');
-                void img.offsetWidth;
-                img.src = personagem.imagem;
-                img.classList.add('animar-comum');
+                personagem.elementos.imagemElemento.classList.remove('animar-imagem');
+                void personagem.elementos.imagemElemento.offsetWidth; // Reseta a classe forçando reflow
+                personagem.elementos.imagemElemento.classList.add('animar-imagem');
+                personagem.elementos.imagemElemento.removeAttribute('srcset');
+                personagem.elementos.imagemElemento.crossOrigin = "anonymous";
+                personagem.elementos.imagemElemento.src = personagem.imagem;
             }
         });
     });

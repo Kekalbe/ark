@@ -1,4 +1,13 @@
-.animar-comum {
+.name {
     opacity: 0;
-    animation: entradaImagem 1s ease-out forwards;
+    animation: entradaNome 1s ease-out forwards;
+}
+
+@keyframes entradaNome {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
