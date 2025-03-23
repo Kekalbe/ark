@@ -31,7 +31,12 @@ if (nameElement && imgElement) {
             // Troca da imagem com animação
             imgElement.classList.remove('fadeIn');
             void imgElement.offsetWidth; // Força reflow
+
+            // Atualiza a imagem e remove atributos que podem interferir
             imgElement.src = personagem.imagem;
+            imgElement.removeAttribute('srcset');
+            imgElement.removeAttribute('alt');
+
             imgElement.classList.add('fadeIn');
         });
     });
