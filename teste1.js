@@ -21,24 +21,36 @@ const personagens = [
 
 // Adiciona eventos de clique para cada personagem
 personagens.forEach(function(personagem) {
-    if (!personagem.clicar || !personagem.elementos.name) return;
+    if (!personagem.clicar) return;
 
     personagem.clicar.addEventListener('click', function () {
-        console.log(`Alterando para: ${personagem.novoTextoName}`);
+        console.log(`Alterando imagem para: ${personagem.imagem}`);
 
-        const nameElement = personagem.elementos.name;
-        
-        // Aplica fade-out
-        nameElement.classList.add('fade-out');
+        // Atualiza o nome e aplica animação corretamente
+        if (personagem.elementos.name) {
+            const nameElement = personagem.elementos.name;
 
-        // Aguarda a transição acabar
-        nameElement.addEventListener('transitionend', function atualizarTexto() {
-            nameElement.textContent = personagem.novoTextoName;
-            nameElement.classList.remove('fade-out');
-            nameElement.classList.add('fade-in');
+            // Remove e adiciona a classe para forçar a reexecução da animação
+            nameElement.style.opacity = "0"; // Garante que desapareça antes de mudar
+            setTimeout(() => {
+                nameElement.textContent = personagem.novoTextoName;
+                nameElement.classList.remove('fade-in');
+                void nameElement.offsetWidth; // Força reflow
+                nameElement.classList.add('fade-in');
+            }, 200); // Pequeno delay para resetar a opacidade
+        }
 
-            // Remove o listener para evitar múltiplas execuções
-            nameElement.removeEventListener('transitionend', atualizarTexto);
-        }, { once: true });
+        // Atualiza a imagem e aplica animação corretamente
+        if (personagem.elementos.imagemElemento) {
+            const imgElement = personagem.elementos.imagemElemento;
+            imgElement.removeAttribute('srcset'); // Remove srcset
+            imgElement.crossOrigin = "anonymous"; // Mantém o crossOrigin
+            imgElement.src = personagem.imagem; // Define a nova imagem
+
+            // Remove e adiciona a classe para reiniciar a animação
+            imgElement.classList.remove('fade-in');
+            void imgElement.offsetWidth; // Força o reflow
+            imgElement.classList.add('fade-in');
+        }
     });
 });
