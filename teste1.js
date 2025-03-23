@@ -32,10 +32,10 @@ if (nameElement && imgElement) {
             imgElement.classList.remove('fadeIn');
             void imgElement.offsetWidth; // Força reflow
 
-            // Atualiza a imagem e remove atributos que podem interferir
+            // Atualiza todos os atributos da imagem
             imgElement.src = personagem.imagem;
-            imgElement.removeAttribute('srcset');
-            imgElement.removeAttribute('alt');
+            imgElement.srcset = personagem.imagem; // Define o srcset com o mesmo valor do src
+            imgElement.alt = personagem.novoTextoName; // Define o alt com o nome do personagem
 
             imgElement.classList.add('fadeIn');
         });
