@@ -24,33 +24,30 @@ personagens.forEach(function(personagem) {
     if (!personagem.clicar) return;
 
     personagem.clicar.addEventListener('click', function () {
-        console.log(`Alterando imagem para: ${personagem.imagem}`);
+        console.log(`Alterando para: ${personagem.novoTextoName}`);
 
-        // Atualiza o nome e aplica animação corretamente
+        // Atualiza o nome com animação
         if (personagem.elementos.name) {
             const nameElement = personagem.elementos.name;
 
-            // Remove e adiciona a classe para forçar a reexecução da animação
-            nameElement.style.opacity = "0"; // Garante que desapareça antes de mudar
+            nameElement.classList.remove('fade-in');
+            nameElement.style.opacity = "0"; // Some antes de mudar o texto
             setTimeout(() => {
                 nameElement.textContent = personagem.novoTextoName;
-                nameElement.classList.remove('fade-in');
-                void nameElement.offsetWidth; // Força reflow
                 nameElement.classList.add('fade-in');
-            }, 200); // Pequeno delay para resetar a opacidade
+            }, 100); // Pequeno delay
         }
 
-        // Atualiza a imagem e aplica animação corretamente
+        // Atualiza a imagem com animação
         if (personagem.elementos.imagemElemento) {
             const imgElement = personagem.elementos.imagemElemento;
-            imgElement.removeAttribute('srcset'); // Remove srcset
-            imgElement.crossOrigin = "anonymous"; // Mantém o crossOrigin
-            imgElement.src = personagem.imagem; // Define a nova imagem
-
-            // Remove e adiciona a classe para reiniciar a animação
+            
             imgElement.classList.remove('fade-in');
-            void imgElement.offsetWidth; // Força o reflow
-            imgElement.classList.add('fade-in');
+            imgElement.style.opacity = "0"; // Some antes de mudar a imagem
+            setTimeout(() => {
+                imgElement.src = personagem.imagem;
+                imgElement.classList.add('fade-in');
+            }, 100);
         }
     });
 });
