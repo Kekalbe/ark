@@ -20,6 +20,10 @@
     }
 }
 
-.name {
+.name.animating {
     animation: fadeTrocaTexto 0.8s ease-out forwards;
+}
+
+.imagem-p.animating {
+    animation: fadeIn 0.8s ease-out forwards;
 }
