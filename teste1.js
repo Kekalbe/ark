@@ -29,12 +29,15 @@ personagens.forEach(function(personagem) {
         // Atualiza o nome e aplica animação corretamente
         if (personagem.elementos.name) {
             const nameElement = personagem.elementos.name;
-            nameElement.textContent = personagem.novoTextoName;
 
             // Remove e adiciona a classe para forçar a reexecução da animação
-            nameElement.classList.remove('fade-in');
-            void nameElement.offsetWidth; // Força o reflow
-            nameElement.classList.add('fade-in');
+            nameElement.style.opacity = "0"; // Garante que desapareça antes de mudar
+            setTimeout(() => {
+                nameElement.textContent = personagem.novoTextoName;
+                nameElement.classList.remove('fade-in');
+                void nameElement.offsetWidth; // Força reflow
+                nameElement.classList.add('fade-in');
+            }, 200); // Pequeno delay para resetar a opacidade
         }
 
         // Atualiza a imagem e aplica animação corretamente
