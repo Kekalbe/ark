@@ -34,22 +34,34 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log(`Alterando para: ${personagem.novoTextoName}`);
             personagemAtual = personagem.novoTextoName;
 
-            // Atualiza o nome com a classe de animação específica
+            // Atualiza o nome com a animação
             if (personagem.elementos.name) {
-                personagem.elementos.name.classList.remove('animar-name'); 
-                void personagem.elementos.name.offsetWidth; // Reseta a classe forçando reflow
-                personagem.elementos.name.classList.add('animar-name');
-                personagem.elementos.name.textContent = personagem.novoTextoName;
+                const nameElement = personagem.elementos.name;
+
+                // Remove a classe de animação anterior
+                nameElement.classList.remove('animar-name');
+                
+                // Força o reflow para reiniciar a animação
+                void nameElement.offsetWidth;
+
+                // Altera o nome APÓS um pequeno atraso
+                setTimeout(() => {
+                    nameElement.textContent = personagem.novoTextoName;
+                    nameElement.classList.add('animar-name');
+                }, 10); // Pequeno atraso para garantir que o texto mude antes da animação começar
             }
 
-            // Atualiza a imagem com a classe de animação específica
+            // Atualiza a imagem com a animação
             if (personagem.elementos.imagemElemento) {
-                personagem.elementos.imagemElemento.classList.remove('animar-imagem');
-                void personagem.elementos.imagemElemento.offsetWidth; // Reseta a classe forçando reflow
-                personagem.elementos.imagemElemento.classList.add('animar-imagem');
-                personagem.elementos.imagemElemento.removeAttribute('srcset');
-                personagem.elementos.imagemElemento.crossOrigin = "anonymous";
-                personagem.elementos.imagemElemento.src = personagem.imagem;
+                const imgElement = personagem.elementos.imagemElemento;
+
+                imgElement.classList.remove('animar-imagem');
+                void imgElement.offsetWidth;
+                imgElement.classList.add('animar-imagem');
+
+                imgElement.removeAttribute('srcset');
+                imgElement.crossOrigin = "anonymous";
+                imgElement.src = personagem.imagem;
             }
         });
     });
