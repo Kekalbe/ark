@@ -30,22 +30,28 @@ personagens.forEach(function(personagem) {
         if (personagem.elementos.name) {
             const nameElement = personagem.elementos.name;
 
-            // Remove e reaplica a animação
             nameElement.classList.remove('fadeTrocaTexto');
-            void nameElement.offsetWidth; // Força reflow para reiniciar a animação
-            nameElement.textContent = personagem.novoTextoName;
-            nameElement.classList.add('fadeTrocaTexto');
+
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    nameElement.textContent = personagem.novoTextoName;
+                    nameElement.classList.add('fadeTrocaTexto');
+                });
+            });
         }
 
         // Troca da imagem com animação
         if (personagem.elementos.imagemElemento) {
             const imgElement = personagem.elementos.imagemElemento;
 
-            // Remove e reaplica a animação
             imgElement.classList.remove('fadeIn');
-            void imgElement.offsetWidth; // Força reflow para reiniciar a animação
-            imgElement.src = personagem.imagem;
-            imgElement.classList.add('fadeIn');
+
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    imgElement.src = personagem.imagem;
+                    imgElement.classList.add('fadeIn');
+                });
+            });
         }
     });
 });
