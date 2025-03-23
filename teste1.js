@@ -21,25 +21,24 @@ const personagens = [
 
 // Adiciona eventos de clique para cada personagem
 personagens.forEach(function(personagem) {
-    if (!personagem.clicar) return;
+    if (!personagem.clicar || !personagem.elementos.name) return;
 
     personagem.clicar.addEventListener('click', function () {
         console.log(`Alterando para: ${personagem.novoTextoName}`);
 
         const nameElement = personagem.elementos.name;
-        if (nameElement) {
-            // Aplica o fade-out
-            nameElement.classList.add('fade-out');
+        
+        // Aplica fade-out
+        nameElement.classList.add('fade-out');
 
-            // Aguarda o fim da animação para mudar o texto e aplicar fade-in
-            nameElement.addEventListener('transitionend', function atualizarTexto() {
-                nameElement.textContent = personagem.novoTextoName;
-                nameElement.classList.remove('fade-out');
-                nameElement.classList.add('fade-in');
+        // Aguarda a transição acabar
+        nameElement.addEventListener('transitionend', function atualizarTexto() {
+            nameElement.textContent = personagem.novoTextoName;
+            nameElement.classList.remove('fade-out');
+            nameElement.classList.add('fade-in');
 
-                // Remove o listener para evitar múltiplas execuções
-                nameElement.removeEventListener('transitionend', atualizarTexto);
-            }, { once: true }); // 'once' garante que só execute uma vez
-        }
+            // Remove o listener para evitar múltiplas execuções
+            nameElement.removeEventListener('transitionend', atualizarTexto);
+        }, { once: true });
     });
 });
