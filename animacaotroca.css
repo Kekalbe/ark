@@ -12,7 +12,7 @@
 @keyframes fadeTrocaTexto {
     from {
         opacity: 0;
-        transform: translateX(30%);
+        transform: translateX(60%);
     }
     to {
         opacity: 1;
