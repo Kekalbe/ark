@@ -21,4 +21,4 @@ const personagens = [
     }
 ];
 
-export { personagens };
+export default personagens;
