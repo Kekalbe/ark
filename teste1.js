@@ -1,5 +1,5 @@
 // main.js
-import personagens from '.personagens.js';
+import personagens from 'personagens.js';
 
 personagens.forEach(function(personagem) {
     if (!personagem.clicar) return;
