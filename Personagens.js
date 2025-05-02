@@ -28,7 +28,6 @@ const personagens = [
             imagemElemento: document.querySelector('.imagem-p img')
         }
     }
-
 ];
 
 export default personagens;
