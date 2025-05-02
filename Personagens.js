@@ -22,7 +22,7 @@ const personagens = [
     {
         clicar: document.querySelector('.virtuosa-p'),
         novoTextoName: 'Virtuosa',
-        imagem: 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@3c715e96b191769610cb113e9c5e442b9a7d9c1a/PersonagensSeletor/__reed_arknights_drawn_by_vxdrq__2e911319857ddcc9967db0cf682c939c-removebg-preview.png',
+        imagem: 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@7b41b71bd988742eb03c1ea2f43a28e54743d83e/PersonagensSeletor/__virtuosa_arknights_drawn_by_vxdrq__sample-3d6058c312f18b8f4d8de8b072b28a8a-removebg-preview.png',
         elementos: {
             name: document.querySelector('.name'),
             imagemElemento: document.querySelector('.imagem-p img')
