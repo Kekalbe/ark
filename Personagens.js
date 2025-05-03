@@ -27,6 +27,15 @@ const personagens = [
             name: document.querySelector('.name'),
             imagemElemento: document.querySelector('.imagem-p img')
         }
+    },
+    {
+        clicar: document.querySelector('.ines-p'),
+        novoTextoName: 'Ines',
+        imagem: './Ines_Skin_2.png',
+        elementos: {
+            name: document.querySelector('.name'),
+            imagemElemento: document.querySelector('.imagem-p img')
+        }
     }
 ];
 
