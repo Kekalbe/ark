@@ -31,7 +31,7 @@ const personagens = [
     {
         clicar: document.querySelector('.ines-p'),
         novoTextoName: 'Ines',
-        imagem: './Ines_Skin_2.png',
+        imagem: 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@eba535a574fc50a089034cca5ceed40dd917fb14/PersonagensSeletor/Ines/Ines_Skin_2.png',
         elementos: {
             name: document.querySelector('.name'),
             imagemElemento: document.querySelector('.imagem-p img')
