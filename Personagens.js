@@ -45,6 +45,33 @@ const personagens = [
             name: document.querySelector('.name'),
             imagemElemento: document.querySelector('.imagem-p img')
         }
+    },
+    {
+        clicar: document.querySelector('.gavialalter-p'),
+        novoTextoName: 'Gavial Alter',
+        imagem: 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@c43f257549ac864385771faee47537fd917b9728/PersonagensSeletor/Necrass/Necrass_Elite_2.png',
+        elementos: {
+            name: document.querySelector('.name'),
+            imagemElemento: document.querySelector('.imagem-p img')
+        }
+    },
+    {
+        clicar: document.querySelector('.texasalter-p'),
+        novoTextoName: 'Texas Alter',
+        imagem: 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@c43f257549ac864385771faee47537fd917b9728/PersonagensSeletor/Necrass/Necrass_Elite_2.png',
+        elementos: {
+            name: document.querySelector('.name'),
+            imagemElemento: document.querySelector('.imagem-p img')
+        }
+    },
+    {
+        clicar: document.querySelector('.eblana-p'),
+        novoTextoName: 'Eblana',
+        imagem: 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@c43f257549ac864385771faee47537fd917b9728/PersonagensSeletor/Necrass/Necrass_Elite_2.png',
+        elementos: {
+            name: document.querySelector('.name'),
+            imagemElemento: document.querySelector('.imagem-p img')
+        }
     }
 ];
 
