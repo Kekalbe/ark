@@ -49,7 +49,7 @@ const personagens = [
     {
         clicar: document.querySelector('.gavialalter-p'),
         novoTextoName: 'Gavial Alter',
-        imagem: 'https://github.com/Kekalbe/ark/blob/4ad82f9482c05de6a74203e92518176bdaac2d67/PersonagensSeletor/Gavial%20The%20Invincible/Gavial_the_Invincible_Skin_1.png',
+        imagem: 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@2559e810ae473e8fc8c941adc7ab41399bbd3d25/PersonagensSeletor/Gavial%20The%20Invincible/Gavial_the_Invincible_Skin_1.png',
         elementos: {
             name: document.querySelector('.name'),
             imagemElemento: document.querySelector('.imagem-p img')
@@ -58,7 +58,7 @@ const personagens = [
     {
         clicar: document.querySelector('.texasalter-p'),
         novoTextoName: 'Texas Alter',
-        imagem: 'https://github.com/Kekalbe/ark/blob/4ad82f9482c05de6a74203e92518176bdaac2d67/PersonagensSeletor/Texas%20The%20Omertosa/Texas_the_Omertosa_Elite_2.png',
+        imagem: 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@2559e810ae473e8fc8c941adc7ab41399bbd3d25/PersonagensSeletor/Texas%20The%20Omertosa/Texas_the_Omertosa_Elite_2.png',
         elementos: {
             name: document.querySelector('.name'),
             imagemElemento: document.querySelector('.imagem-p img')
