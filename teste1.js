@@ -13,6 +13,7 @@ personagens.forEach(function(personagem) {
             name.classList.remove('entradaNome', 'animatingTexto');
             void name.offsetWidth;
             name.textContent = personagem.novoTextoName;
+            name.innerHTML = personagem.novoTextoName;
             name.classList.add('animatingTexto');
         }
 
