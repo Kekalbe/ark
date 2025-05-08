@@ -31,3 +31,21 @@ personagens.forEach(function(personagem) {
         }
     });
 });
+
+// Menu Estrutura
+
+const btn = document.querySelector('.menu-bpg');
+const menuV = document.querySelector('.menu-v');
+    const BannerP = document.querySelector('banner-pbg');
+
+// Adiciona o evento de clique no botão
+btn.addEventListener('click', () => {
+    // Alterna a classe 'active' no menu
+menuV.classList.toggle('active');
+        
+        if (menuV.classList.contains('active')) {
+            BannerP.style.opacity = '0.5';
+        } else {
+            BannerP.style.opacity = '1';
+        }
+});
