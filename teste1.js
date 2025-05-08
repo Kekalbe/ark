@@ -36,7 +36,7 @@ personagens.forEach(function(personagem) {
 
 const btn = document.querySelector('.menu-bpg');
 const menuV = document.querySelector('.menu-v');
-    const BannerP = document.querySelector('banner-pbg');
+const BannerP = document.querySelector('banner-pbg');
 
 // Adiciona o evento de clique no botão
 btn.addEventListener('click', () => {
