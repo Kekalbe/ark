@@ -25,5 +25,5 @@
 }
 
 .animatingImagem {
-    animation: fadeIn 1.5s ease-out forwards;
+    animation: fadeIn 1.5s ease-in-out;
 }
