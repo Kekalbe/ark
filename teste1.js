@@ -19,6 +19,7 @@ personagens.forEach(function(personagem) {
         }
 
         if (imagemElemento) {
+            ImagemElemento.classList.remove('animatingImagem');
             imagemElemento.classList.add('animatingImagem');
             imagemElemento.src = personagem.imagem;
             imagemElemento.srcset = personagem.imagem;
