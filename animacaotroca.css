@@ -25,5 +25,13 @@
 }
 
 .animatingImagem {
-    animation: fadeIn 1.5s ease-in-out;
+    transition: transform opacity 0.8s ease-out forwards;
+    transform: translateY(100%);
+    opacity: 0;
+}
+
+.animatingImagem .refresh {
+    transition: transform opacity 0.8s ease-out forwards;
+    transform: translateY(0%);
+    opacity: 1;
 }

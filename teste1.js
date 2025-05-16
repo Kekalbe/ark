@@ -26,9 +26,7 @@ personagens.forEach(function(personagem) {
             void imagemElemento.offsetWidth;
             imagemElemento.src = personagem.imagem;
             imagemElemento.srcset = personagem.imagem;
-            imagemElemento.onload = function() {
-                imagemElemento.classList.add('animatingImagem');
-            };
+            imagemElemento.classList.add('refresh');
         }
     });
 });
