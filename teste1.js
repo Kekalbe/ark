@@ -21,7 +21,7 @@ personagens.forEach(function(personagem) {
             imagemElemento.removeAttribute('srcset');
             imagemElemento.crossOrigin = "anonymous";
 
-            imagemElemento.classList.remove('entradaImagem', 'animatingImagem');
+            imagemElemento.classList.remove('animatingImagem');
             void imagemElemento.offsetWidth;
 
             imagemElemento.src = personagem.imagem;
