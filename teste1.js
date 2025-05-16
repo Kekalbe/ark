@@ -10,7 +10,7 @@ personagens.forEach(function(personagem) {
         const { name, imagemElemento } = personagem.elementos;
 
         if (name) {
-            name.classList.remove('entradaNome', 'animatingTexto');
+            name.classList.remove('animatingTexto');
             void name.offsetWidth;
             name.textContent = personagem.novoTextoName;
             name.innerHTML = personagem.novoTextoName;
