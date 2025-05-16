@@ -21,9 +21,9 @@
 }
 
 .animatingTexto {
-    animation: fadeTrocaTexto 0.8s ease-out forwards;
+    animation: fadeTrocaTexto 0.8s ease-in-out;
 }
 
 .animatingImagem {
-    animation: fadeIn 0.8s ease-out forwards;
+    animation: fadeIn 0.8s ease-in-out;
 }
