@@ -18,16 +18,12 @@ personagens.forEach(function(personagem) {
         }
 
         if (imagemElemento) {
+            imagemElemento.classList.remove('animatingImagem');
+            imagemElemento.classList.add('animatingImagem');
             imagemElemento.removeAttribute('srcset');
             imagemElemento.crossOrigin = "anonymous";
-
-            imagemElemento.classList.remove('animatingImagem');
             void imagemElemento.offsetWidth;
 
-            imagemElemento.src = personagem.imagem;
-            imagemElemento.alt = personagem.novoTextoName;
-            imagemElemento.srcset = personagem.imagem;
-            imagemElemento.classList.add('animatingImagem');
         }
     });
 });
