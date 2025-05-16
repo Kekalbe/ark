@@ -10,17 +10,15 @@ personagens.forEach(function(personagem) {
         const { name, imagemElemento } = personagem.elementos;
 
         if (name) {
-            name.classList.remove('animatingTexto');
+            name.classList.add('animatingTexto');
             void name.offsetWidth;
             name.textContent = personagem.novoTextoName;
             name.innerHTML = personagem.novoTextoName;
-            name.classList.add('animatingTexto');
+            
         }
 
         if (imagemElemento) {
-            imagemElemento.classList.remove('animatingImagem');
             imagemElemento.classList.add('animatingImagem');
-
             void imagemElemento.offsetWidth;
             imagemElemento.src = personagem.imagem;
             imagemElemento.srcset = personagem.imagem;
