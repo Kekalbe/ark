@@ -23,7 +23,8 @@ personagens.forEach(function(personagem) {
             imagemElemento.removeAttribute('srcset');
             imagemElemento.crossOrigin = "anonymous";
             void imagemElemento.offsetWidth;
-
+            imagemElemento.src = personagem.imagem;
+            imagemElemento.srcset = personagem.imagem;
         }
     });
 });
