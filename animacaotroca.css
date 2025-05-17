@@ -14,7 +14,7 @@
 @keyframes fadeInImagem {
     from {
         opacity: 0;
-        transform: translateY(100%);
+        transform: translateY(50%);
     }
     to {
         opacity: 1;
@@ -31,5 +31,5 @@
 .animatingImagem {
     animation: fadeInImagem 0.8s ease-in-out;
     opacity: 0; /* Inicializa a imagem invisível */
-    transform: translateY(50%); /* Inicializa a imagem abaixo da tela */
+    transform: translateY(100%); /* Inicializa a imagem abaixo da tela */
 }
