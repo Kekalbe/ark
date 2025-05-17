@@ -24,9 +24,9 @@ personagens.forEach(function(personagem) {
             imagemElemento.classList.remove('animatingImagem');
             // Forçar reflow para garantir que a animação seja reiniciada
             void imagemElemento.offsetWidth;
+            imagemElemento.classList.add('animatingImagem');
             imagemElemento.src = personagem.imagem;
             imagemElemento.srcset = personagem.imagem;
-            imagemElemento.classList.add('refresh');
         }
     });
 });
