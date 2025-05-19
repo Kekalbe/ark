@@ -76,7 +76,7 @@ const personagens = [
         {
         clicar: document.querySelector('.lemuen-p'),
         novoTextoName:'Lemuen',
-        imagem: 'https://github.com/Kekalbe/ark/blob/bf305c944171b2bd649d528323754faed4555121/PersonagensSeletor/Lemuen/Lemuen_Elite_2.png',
+        imagem: 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@bf305c944171b2bd649d528323754faed4555121/PersonagensSeletor/Lemuen/Lemuen_Elite_2.png',
         elementos: {
             name: document.querySelector('.name'),
             imagemElemento: document.querySelector('.imagem-p img')
