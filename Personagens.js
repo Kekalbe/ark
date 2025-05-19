@@ -85,7 +85,7 @@ const personagens = [
         {
         clicar: document.querySelector('.wisadel-p'),
         novoTextoName:'Wisadel',
-        imagem: 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@4ad82f9482c05de6a74203e92518176bdaac2d67/PersonagensSeletor/Vulpisfoglia/Vulpisfoglia_Elite_2.png',
+        imagem: '',
         elementos: {
             name: document.querySelector('.name'),
             imagemElemento: document.querySelector('.imagem-p img')
