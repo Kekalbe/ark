@@ -90,6 +90,15 @@ const personagens = [
             name: document.querySelector('.name'),
             imagemElemento: document.querySelector('.imagem-p img')
         }
+    },
+        {
+        clicar: document.getElementById('ExusiaiAlter'),
+        novoTextoName:'Exusiai Alter',
+        imagem: 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@bf305c944171b2bd649d528323754faed4555121/PersonagensSeletor/Wisadel/Wi%C5%A1adel_Skin_1.png',
+        elementos: {
+            name: document.querySelector('.name'),
+            imagemElemento: document.querySelector('.imagem-p img')
+        }
     }
 ];
 
