@@ -2,7 +2,7 @@
 
 const personagens = [
     {
-        clicar: document.querySelector('.viviana-p'),
+        clicar: document.getElementById('Viviana'),
         novoTextoName: 'Viviana',
         imagem: 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@refs/heads/master/PersonagensSeletor/Viviana/Viviana_Elite_2.webp',
         elementos: {
@@ -11,7 +11,7 @@ const personagens = [
         }
     },
     {
-        clicar: document.querySelector('.amiya-p'),
+        clicar: document.getElementById('Amiya'),
         novoTextoName: 'Amiya',
         imagem: 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@refs/heads/master/PersonagensSeletor/Amiya%20Medic/Amiya_(Medic).webp',
         elementos: {
@@ -20,7 +20,7 @@ const personagens = [
         }
     },
     {
-        clicar: document.querySelector('.virtuosa-p'),
+        clicar: document.getElementById('Virtuosa'),
         novoTextoName: 'Virtuosa',
         imagem: 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@55b5840271070fe4a6e147c2c3f6dea7f910c86b/PersonagensSeletor/imagem_2025-05-02_210907593-removebg-preview.png',
         elementos: {
@@ -29,7 +29,7 @@ const personagens = [
         }
     },
     {
-        clicar: document.querySelector('.ines-p'),
+        clicar: document.getElementById('Ines'),
         novoTextoName: 'Ines',
         imagem: 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@eba535a574fc50a089034cca5ceed40dd917fb14/PersonagensSeletor/Ines/Ines_Skin_2.png',
         elementos: {
@@ -38,7 +38,7 @@ const personagens = [
         }
     },
     {
-        clicar: document.querySelector('.eblana-p'),
+        clicar: document.getElementById('Eblana'),
         novoTextoName: 'Eblana',
         imagem: 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@c43f257549ac864385771faee47537fd917b9728/PersonagensSeletor/Necrass/Necrass_Elite_2.png',
         elementos: {
@@ -47,7 +47,7 @@ const personagens = [
         }
     },
     {
-        clicar: document.querySelector('.gavialalter-p'),
+        clicar: document.getElementById('GavialAlter'),
         novoTextoName: 'Gavial Alter',
         imagem: 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@2559e810ae473e8fc8c941adc7ab41399bbd3d25/PersonagensSeletor/Gavial%20The%20Invincible/Gavial_the_Invincible_Skin_1.png',
         elementos: {
@@ -56,7 +56,7 @@ const personagens = [
         }
     },
     {
-        clicar: document.querySelector('.texasalter-p'),
+        clicar: document.getElementById('TexasAlter'),
         novoTextoName: 'Texas Alter',
         imagem: 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@2559e810ae473e8fc8c941adc7ab41399bbd3d25/PersonagensSeletor/Texas%20The%20Omertosa/Texas_the_Omertosa_Elite_2.png',
         elementos: {
@@ -65,7 +65,7 @@ const personagens = [
         }
     },
     {
-        clicar: document.querySelector('.vulpi-p'),
+        clicar: document.getElementById('Vulpi'),
         novoTextoName:'Vulpisfoglia',
         imagem: 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@4ad82f9482c05de6a74203e92518176bdaac2d67/PersonagensSeletor/Vulpisfoglia/Vulpisfoglia_Elite_2.png',
         elementos: {
@@ -74,7 +74,7 @@ const personagens = [
         }
     },
         {
-        clicar: document.querySelector('.lemuen-p'),
+        clicar: document.getElementById('Lemuen'),
         novoTextoName:'Lemuen',
         imagem: 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@bf305c944171b2bd649d528323754faed4555121/PersonagensSeletor/Lemuen/Lemuen_Elite_2.png',
         elementos: {
