@@ -22,7 +22,7 @@ const personagens = [
     {
         clicar: document.getElementById('Virtuosa'),
         novoTextoName: 'Virtuosa',
-        imagem: 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@55b5840271070fe4a6e147c2c3f6dea7f910c86b/PersonagensSeletor/imagem_2025-05-02_210907593-removebg-preview.png',
+        imagem: 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@cb2d9fb876ded9ca8edc8f090576c6a85dd633e6/PersonagensSeletor/Virtuosa/Virtuosa_Skin_1.png',
         elementos: {
             name: document.querySelector('.name'),
             imagemElemento: document.querySelector('.imagem-p img')
