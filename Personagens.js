@@ -4,7 +4,7 @@ const personagens = [
     {
         clicar: document.getElementById('Viviana'),
         novoTextoName: 'Viviana',
-        imagem: 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@refs/heads/master/PersonagensSeletor/Viviana/Viviana_Elite_2.webp',
+        imagem: 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@704146182b50b5c502b42a1f13a7bd972dc3aa3b/PersonagensSeletor/Viviana/Viviana_Skin_1.png',
         elementos: {
             name: document.querySelector('.name'),
             imagemElemento: document.querySelector('.imagem-p img')
