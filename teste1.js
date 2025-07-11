@@ -45,4 +45,4 @@ personagens.forEach(function(personagem) {
     });
 });
 
-// Teste github número 1
+// Testando merge número 2,em seguida volta de versão
