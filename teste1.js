@@ -45,4 +45,4 @@ personagens.forEach(function(personagem) {
     });
 });
 
-// Testando merge número 2,em seguida volta de versão
+// Teste terceiro merge e rebobinação da tag
