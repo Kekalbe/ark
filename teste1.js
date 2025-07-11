@@ -44,3 +44,5 @@ personagens.forEach(function(personagem) {
         }
     });
 });
+
+// Teste github número 1
