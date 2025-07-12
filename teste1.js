@@ -45,4 +45,4 @@ personagens.forEach(function(personagem) {
     });
 });
 
-// Teste terceiro merge e rebobinação da tag
+// Teste 3
