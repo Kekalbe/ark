@@ -1,5 +1,5 @@
 // main.js
-import personagens from 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@master/ArkN/Personagens.js'
+import personagens from './Personagens.js';
 
 personagens.forEach(function(personagem) {
     if (!personagem.clicar) return;
