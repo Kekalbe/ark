@@ -45,4 +45,12 @@ personagens.forEach(function(personagem) {
     });
 });
 
+<<<<<<< HEAD
 // Teste 4.4
+=======
+<<<<<<<< HEAD:teste1.js
+// Teste 3.
+========
+// Teste 4.8
+>>>>>>>> master:ArkN/teste1.js
+>>>>>>> master
