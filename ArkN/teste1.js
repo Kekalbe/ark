@@ -45,4 +45,4 @@ personagens.forEach(function(personagem) {
     });
 });
 
-// Teste 4.8
+// Teste 5
