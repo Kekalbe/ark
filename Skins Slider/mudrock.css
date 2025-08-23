@@ -1,0 +1,313 @@
+#mudrock {
+  display: flex;
+  position: relative;
+  background: white;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#mudrock-skin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-30%, -50%);
+  width: clamp(70vh, 60vh + 60vw, 135vh);
+  height: auto;
+  z-index: 2;
+  pointer-events: none;
+}
+
+#mudrock img:nth-child(2) {
+  position: absolute;
+  z-index: 0;
+  bottom: 0;
+  right: 0;
+  width: 75%;
+  height: auto;
+  pointer-events: none;
+}
+
+#mudrock img:nth-child(3) {
+  position: absolute;
+  z-index: 2;
+  width: clamp(25vh, 7vw + 12vh, 20vw);
+  height: auto;
+  top: 0;
+  right: 0;
+  filter: invert(1);
+  padding: 1% 1% 0 0;
+  pointer-events: none;
+}
+
+#mudrock img:nth-child(4) {
+  position: absolute;
+  width: 75%;
+  height: clamp(40vh, 20vw + 30vh, 75vh);
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.cont-skin {
+  display: flex;
+  font-family: 'Archivo Black';
+  width: 40%;
+  height: 100%;
+  z-index: 1;
+  flex-direction: column;
+  gap: 15px;
+  padding-top: 5%;
+  padding-left: 2%;
+}
+
+.cont-skin h1 {
+  font-size: clamp(4rem + 14vh, 7vw + 14vh, 35rem);
+  position: relative;
+  color: #79C71A;
+  text-shadow: 3px 4px 5px black;
+  transform: translateX(-15px);
+}
+
+.cont-skin h2 {
+  font-family: 'PT Sans';
+  font-size: clamp(2.5rem + 4vh, 3vw + 5vh, 30rem);
+  background: linear-gradient(90deg, #830c0c, #ff0000);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: -5%;
+}
+
+.cont-skin h1::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -15%);
+  height: 25px;
+  width: 80vw;
+  background: red;
+  z-index: -1;
+}
+
+.cont-skin h1, h2 {
+  margin: 0;
+}
+
+.icons {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 15px;
+  margin-bottom: 2%;
+}
+
+#mudrock-icons {
+  width: 25%;
+  height: auto;
+  pointer-events: none;
+}
+
+.cont-skin span {
+    display: flex;
+    background: white;
+    color: #79C71A;
+    border-radius: 5px;
+    font-size: clamp(0.8rem, 1.8vw, 2.5rem);
+    padding: clamp(0.4vw, 0.5vw, 2vw);
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    border: clamp(2px, 0.3vw + 0.05rem, 12px) solid black;
+}
+
+.mudrock-theme {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(3rem, 4vw, 6rem);
+  position: absolute;
+  width: clamp(25rem + 30vh, 35vw + 40vh, 85rem);
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-35%, 65%);
+  z-index: 3;
+  font-family: 'PT Sans';
+  font-weight: bold;
+  font-size: clamp(1.2rem, 1vw + 2vh, 3.5rem);
+}
+
+.keywords-skin, .theme-skin {
+  display: flex;
+}
+
+.keywords {
+  position: relative;
+  background: black;
+  padding: 2%;
+  color: white;
+}
+
+.keywords::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -1%;
+  width: clamp(7px, 0.5vw + 0.5vh, 20px);
+  height: 100%;
+  background: #79C71A;
+}
+
+.Theme {
+  position: relative;
+  background: white;
+  padding: 2%;
+  color: black;
+  padding-right: clamp(3rem, 6vw, 8rem);
+}
+
+.Theme::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: clamp(1.8rem, 3vw, 4rem);
+  background: red;
+  clip-path: polygon(100% 0, 0 50%, 100% 100%);
+}
+
+/* Parte Responsividade */
+
+
+/* Padrão Portrait Responsividade */
+
+@media (orientation: portrait) {
+  #mudrock-skin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -45%);
+  width: clamp(125vh, 165vh, 210vh);
+  mask-image: radial-gradient(circle farthest-side at 85% 70%, black 70%, transparent);
+  }
+
+  #mudrock img:nth-child(2) {
+    display: none;
+  }
+
+  #mudrock img:nth-child(3) {
+    position: absolute;
+    z-index: 2;
+    width: clamp(15vw, 20vh, 35vw);
+    height: auto;
+    right: 0;
+    bottom: 0;
+    top: unset;
+    filter: unset;
+    padding: 0 1% 1% 0;
+  }
+
+  .mudrock-theme {
+    display: flex;
+    width: 100%;
+    font-size: clamp(1vh, 2.5vh, 5vw);
+    gap: 20px;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+  }
+
+  .keywords-skin, .theme-skin {
+    display: flex;
+    position: relative;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cont-skin {
+    width: 20%;
+    z-index: unset;
+  }
+
+  .cont-skin span {
+    padding: clamp(0.8vw, 2vw, 2vw);
+    font-size: clamp(0.5vh, 2vh, 3vh);
+    width: 100%;
+    height: auto;
+    justify-content: center;
+  }
+
+  .icons {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    z-index: 3;
+    align-items: center;
+  }
+
+  .cont-skin h1 {
+    font-size: clamp(5rem, 12vw, 18rem);
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    letter-spacing: -35px;
+  }
+
+  .cont-skin h1::after {
+    content: '';
+    position: absolute;
+    top: -8%;
+    left: 50px;
+    transform: translateX(-50%);
+    height: 250vh;
+    width: 15%;
+  }
+
+  .cont-skin h2 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-40%);
+    font-size: clamp(2.5rem, 14vw, 6rem);
+    letter-spacing: clamp(0.2rem, 1vw, 0.6rem);
+    z-index: 3;
+  }
+}
+
+
+
+/* Padrão Portrait Responsividade End */
+
+/* Desktop / Notebook */
+
+@media (min-width: 1024px) and (orientation: landscape) {
+
+}
+/* Desktop / Notebook End */
+
+/* Tablets / Ipad */
+
+@media (min-height: 768px) and (orientation: portrait) {
+
+}
+
+/* Tablets / Ipad End */
+
+/* Celulares */
+
+@media (max-height: 767px) and (max-width: 985px) and (orientation: landscape) {
+  .mudrock-theme {
+    width: clamp(20rem, 15rem + 15vw, 70rem);
+    top: 50%;
+    left: 50%;
+    transform: translate(-10%, 55%);
+    gap: clamp(1rem, 2vw + 1vh, 6rem);
+    font-size: clamp(0.8rem, 1rem + 0.2vw, 3.5rem);
+  }
+}
+/* Celulares End */
+
+/* Parte Responsividade End */
