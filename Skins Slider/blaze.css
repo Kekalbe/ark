@@ -38,6 +38,7 @@ body {
 /* Container exterior com 100% de height */
 .outer-container {
   position: relative;
+  height: 100vh !important;
   flex: 0 0 100vw;
 }
 
