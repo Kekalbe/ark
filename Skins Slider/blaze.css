@@ -1,5 +1,5 @@
-/* Corpo com 100% de height */
-body {
+/* Corpo com 100% de height
+ body {
   background-color: black;
   color: #fff;
   margin: 0;
@@ -8,15 +8,18 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden; /* Previne overflow */
+  overflow: hidden;
   user-select: none;
-}
+} */
 
 .outside {
   display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   overflow: hidden;
+  user-select: none;
 }
 
 .skins-c {
