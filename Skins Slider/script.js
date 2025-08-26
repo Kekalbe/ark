@@ -1,9 +1,10 @@
-document.addEventListener("DOMContentLoaded", () => {
-    function initSlider() {
-        const container = document.querySelector('.skins-c');
-        if (!container) {
-            console.warn("Elemento .skins-c ainda não existe. Aguardando...");
-            return false;
+(function() {
+    // ======= Função principal =======
+    function initSlider(container) {
+        if (!container) return false;
+        if (container.dataset.sliderInitialized) {
+            console.log("Slider já inicializado, ignorando...");
+            return true;
         }
 
         let items = [...container.querySelectorAll('.outer-container')];
@@ -12,12 +13,14 @@ document.addEventListener("DOMContentLoaded", () => {
             return false;
         }
 
+        console.log("Inicializando slider...");
+
         let isDragging = false;
-        let isTransitioning = false; // Variável para controlar a transição
+        let isTransitioning = false;
         let startX, startTranslateX;
         let dragDistance = 0;
         const threshold = 100; 
-        let currentItem = 1; // Começa no primeiro item real
+        let currentItem = 1;
 
         // ======= Clonagem dinâmica para loop infinito =======
         const cloneFirst = items[0].cloneNode(true);
@@ -134,18 +137,28 @@ document.addEventListener("DOMContentLoaded", () => {
         container.addEventListener('mouseup', endDrag);
         container.addEventListener('mouseleave', endDrag);
 
+        // Marca como inicializado para não duplicar
+        container.dataset.sliderInitialized = "true";
         console.log("Slider inicializado com sucesso!");
         return true;
     }
 
-    // Tenta inicializar imediatamente
-    if (!initSlider()) {
-        // Se não encontrar, usa observer (caso Elementor/AJAX carregue depois)
-        const observer = new MutationObserver(() => {
-            if (initSlider()) {
-                observer.disconnect();
-            }
-        });
-        observer.observe(document.body, { childList: true, subtree: true });
+    // ======= Tentativa inicial =======
+    function tryInit() {
+        const container = document.querySelector('.skins-c');
+        initSlider(container);
     }
-});
+
+    // DOM pronto
+    document.addEventListener("DOMContentLoaded", tryInit);
+    window.addEventListener("load", tryInit);
+
+    // ======= MutationObserver permanente =======
+    const observer = new MutationObserver(() => {
+        const container = document.querySelector('.skins-c');
+        if (container && !container.dataset.sliderInitialized) {
+            initSlider(container);
+        }
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+})();
