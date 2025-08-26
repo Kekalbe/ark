@@ -213,7 +213,7 @@
   }
 
   .ribbon {
-    height: clamp(10px + 5vw, 15vw + -9vh, 4.5rem);
+    height: clamp(10px + 5vw, 2vw + 5vh, 7rem);
     font-size: clamp(15vw - 10rem, 2vw + 6px, 2vh);
     padding: 8px 45px 8px 25px;
     z-index: unset;
