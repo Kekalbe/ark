@@ -83,7 +83,6 @@
     width: 30%;
     align-items: center;
     background: linear-gradient(90deg, #A01A1A 10%, #671024 90%);
-    padding-bottom: clamp(14vw, 20vw, 25vw);
 }
 
 .ribbon::before {
@@ -124,6 +123,7 @@
     max-width: 600px;
     align-items: flex-start;
     justify-content: flex-end;
+    padding-bottom: clamp(3vw, 3vw + 8vh, 8vw);
 }
 
 /* Ribbon padrão */
@@ -376,11 +376,6 @@
 
   .title-n p {
     font-size: clamp(1rem, 7vw, 5rem);
-  }
-
-
-  .inner-container {
-    padding-bottom: clamp(8vw, 9.5vw + 8vh, 15vw);
   }
 
   .emblem {
