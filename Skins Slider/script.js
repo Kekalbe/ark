@@ -1,5 +1,5 @@
 const container = document.querySelector('.skins-c');
-let items = [...container.querySelectorAll('.outer-container')]; // Itens reais
+let items = [...container.querySelector('.outer-container')]; // Itens reais
 
 let isDragging = false;
 let isTransitioning = false; // Variável para controlar a transição
