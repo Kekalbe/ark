@@ -231,7 +231,7 @@
 
   .title-n p {
     font-size: clamp(5vw, 3vw + 6vh, 20vw);
-    font-family: 'Portculliard', Bold;
+    font-family: 'Portculliard';
   }
   
     .emblem-out {
