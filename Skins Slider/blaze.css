@@ -173,7 +173,7 @@
 
 /* Primeiro ribbon */
 #theme-ribbon {
-  width: 50%;
+  width: 70%;
 }
 
 /* Segundo ribbon deslocado */
@@ -210,6 +210,7 @@
   
   .blaze {
     width: clamp(125vh, 145vh, 210vh);
+    max-width: unset !important;
   }
 
   .ribbon {
@@ -230,6 +231,7 @@
 
   .title-n p {
     font-size: clamp(5vw, 3vw + 6vh, 20vw);
+    font-family: Portculliard, Bold;
   }
   
     .emblem-out {
@@ -364,7 +366,7 @@
 
   #theme-ribbon {
     width: clamp(25vw, 5vw + 20vh, 45vw);
-    left: clamp(15px, 4vw + 3vh, 85px);
+    left: clamp(15px, 4vw + 10vh, 85px);
   }
 }
 
@@ -399,7 +401,7 @@
   }
 
   #theme-ribbon {
-    width: 35%;
+    width: 60%;
   }
 }
 /* Celulares End */

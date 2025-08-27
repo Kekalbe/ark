@@ -136,7 +136,8 @@ overflow: hidden;
     bottom: -18%;
     left: 50%;
     transform: translateX(-50%);
-    width: clamp(70vh, 60vh + 60vw, 135vh);
+    width: clamp(60vh, 70vh + 50vw, 140vh);
+    max-width: unset;
     height: auto;
     z-index: 0;
     pointer-events: none;
@@ -317,6 +318,7 @@ overflow: hidden;
 .cont-b2 img {
     position: relative;
     width: clamp(125vh, 195vh, 210vh);
+    max-width: unset;
     left: 0;
     bottom: 0;
     transform: none;
