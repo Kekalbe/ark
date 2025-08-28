@@ -64,7 +64,7 @@
 
 .title-n p {
   font-size: clamp(3rem, 7vw, 10rem);
-  font-family: Portculliard, Bold !important;
+  font-family: Portculliard;
   margin: 0;
   letter-spacing: 0.4rem;
   background: radial-gradient(#111db7, #ff0000);
@@ -231,7 +231,7 @@
 
   .title-n p {
     font-size: clamp(5vw, 3vw + 6vh, 20vw);
-    --e-global-typography-primary-font-family: 'Portculliard' !important;
+    --e-global-typography-primary-font-family: 'Portculliard';
     font-weight: 500;
   }
   
