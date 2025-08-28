@@ -231,7 +231,7 @@
 
   .title-n p {
     font-size: clamp(5vw, 3vw + 6vh, 20vw);
-    font-family: 'Portcullion';
+    --e-global-typography-primary-font-family: 'Portculliard' !important;
     font-weight: 500;
   }
   
