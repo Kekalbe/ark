@@ -105,6 +105,13 @@
                 // Recalcular a largura total
                 updateTotalWidth();
 
+                // Garantir que o currentItem esteja corretamente ajustado
+                const translateX = getCurrentTranslateX();
+                const newCurrentItem = Math.round(Math.abs(translateX) / items[0].offsetWidth);
+
+                // Atualizar currentItem
+                currentItem = newCurrentItem;
+
                 // Ajustar a posição do currentItem caso esteja fora dos limites
                 if (currentItem >= items.length - 1) currentItem = items.length - 2;
                 if (currentItem <= 0) currentItem = 1;
