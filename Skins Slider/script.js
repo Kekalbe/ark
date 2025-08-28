@@ -44,6 +44,7 @@
             startX = e.touches ? e.touches[0].pageX : e.pageX;
             startTranslateX = getCurrentTranslateX();
             dragDistance = 0;
+            container.style.transition = 'none'; // Desabilita transição enquanto arrasta
         }
 
         function moveDrag(e) {
