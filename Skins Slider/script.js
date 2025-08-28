@@ -99,23 +99,15 @@
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimeout);
             resizeTimeout = setTimeout(() => {
-                // Desabilitar a transição temporariamente
+                // Desabilitar transição temporariamente
                 container.style.transition = 'none';
 
                 // Recalcular a largura total
                 updateTotalWidth();
 
-                // Garantir que o currentItem esteja corretamente ajustado
+                // Ajustar o translateX sem mexer no currentItem
                 const translateX = getCurrentTranslateX();
-                const newCurrentItem = Math.round(Math.abs(translateX) / items[0].offsetWidth);
-
-                // Atualizar currentItem
-                currentItem = newCurrentItem;
-
-                // Ajustar a posição do currentItem caso esteja fora dos limites
-                if (currentItem >= items.length - 1) currentItem = items.length - 2;
-                if (currentItem <= 0) currentItem = 1;
-                updateTranslateX();
+                container.style.transform = `translateX(${translateX}px)`; // Não alterar o currentItem diretamente
 
                 // Após o ajuste, reabilitar a transição com um pequeno atraso
                 setTimeout(() => {
