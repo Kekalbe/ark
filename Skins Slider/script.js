@@ -93,22 +93,23 @@
             isTransitioning = false;
         });
 
-        // ======= Debounce resize com correção =======
+        // ======= Debounce resize =======
         let resizeTimeout;
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimeout);
             resizeTimeout = setTimeout(() => {
-                // Atualiza lista de itens e largura
-                items = [...container.querySelectorAll('.outer-container')];
+                // Desabilitar a transição temporariamente
+                container.style.transition = 'none';
 
-                // Atualiza o currentItem se estiver fora dos limites após o resize
+                // Recalcular a largura total
+                updateTotalWidth();
+
+                // Ajustar a posição do currentItem caso esteja fora dos limites
                 if (currentItem >= items.length - 1) currentItem = items.length - 2;
                 if (currentItem <= 0) currentItem = 1;
-
-                container.style.transition = 'none';
                 updateTranslateX();
 
-                // Restaura a transição suave após um pequeno delay
+                // Após o ajuste, reabilitar a transição com um pequeno atraso
                 setTimeout(() => {
                     container.style.transition = 'transform 1.5s ease';
                 }, 50);
