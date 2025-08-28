@@ -93,17 +93,22 @@
             isTransitioning = false;
         });
 
-        // ======= Debounce resize =======
+        // ======= Debounce resize com correção =======
         let resizeTimeout;
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimeout);
             resizeTimeout = setTimeout(() => {
+                // Atualiza lista de itens e largura
+                items = [...container.querySelectorAll('.outer-container')];
+
+                // Atualiza o currentItem se estiver fora dos limites após o resize
+                if (currentItem >= items.length - 1) currentItem = items.length - 2;
+                if (currentItem <= 0) currentItem = 1;
+
                 container.style.transition = 'none';
-                if (items.length > 0) {
-                    if (currentItem >= items.length - 1) currentItem = items.length - 2;
-                    if (currentItem <= 0) currentItem = 1;
-                    updateTranslateX();
-                }
+                updateTranslateX();
+
+                // Restaura a transição suave após um pequeno delay
                 setTimeout(() => {
                     container.style.transition = 'transform 1.5s ease';
                 }, 50);
