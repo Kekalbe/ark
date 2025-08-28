@@ -102,12 +102,16 @@
                 // Desabilitar transição temporariamente
                 container.style.transition = 'none';
 
-                // Recalcular a largura total
-                updateTotalWidth();
+                // Calcular a posição atual do translateX antes de ajustar
+                const currentTranslateX = getCurrentTranslateX();
+                
+                // Ajustar a posição com base na nova largura
+                const itemWidth = items[0].offsetWidth;
+                const currentIndex = Math.round(-currentTranslateX / itemWidth);
 
-                // Ajustar o translateX sem mexer no currentItem
-                const translateX = getCurrentTranslateX();
-                container.style.transform = `translateX(${translateX}px)`; // Não alterar o currentItem diretamente
+                // Manter o item atual centralizado ao ajustar a largura
+                currentItem = currentIndex;
+                updateTranslateX();
 
                 // Após o ajuste, reabilitar a transição com um pequeno atraso
                 setTimeout(() => {
