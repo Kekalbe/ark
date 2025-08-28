@@ -64,7 +64,6 @@
 
 .title-n p {
   font-size: clamp(3rem, 7vw, 10rem);
-  font-family: Portculliard;
   margin: 0;
   letter-spacing: 0.4rem;
   background: radial-gradient(#111db7, #ff0000);
