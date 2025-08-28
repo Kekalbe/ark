@@ -44,7 +44,6 @@
             startX = e.touches ? e.touches[0].pageX : e.pageX;
             startTranslateX = getCurrentTranslateX();
             dragDistance = 0;
-            container.style.transition = 'none'; // Desabilita transição enquanto arrasta
         }
 
         function moveDrag(e) {
@@ -99,21 +98,12 @@
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimeout);
             resizeTimeout = setTimeout(() => {
-                // Desabilitar transição temporariamente
                 container.style.transition = 'none';
-
-                // Calcular a posição atual do translateX antes de ajustar
-                const currentTranslateX = getCurrentTranslateX();
-                
-                // Ajustar a posição com base na nova largura
-                const itemWidth = items[0].offsetWidth;
-                const currentIndex = Math.round(-currentTranslateX / itemWidth);
-
-                // Manter o item atual centralizado ao ajustar a largura
-                currentItem = currentIndex;
-                updateTranslateX();
-
-                // Após o ajuste, reabilitar a transição com um pequeno atraso
+                if (items.length > 0) {
+                    if (currentItem >= items.length - 1) currentItem = items.length - 2;
+                    if (currentItem <= 0) currentItem = 1;
+                    updateTranslateX();
+                }
                 setTimeout(() => {
                     container.style.transition = 'transform 1.5s ease';
                 }, 50);
