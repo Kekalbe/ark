@@ -93,22 +93,31 @@
             isTransitioning = false;
         });
 
-        // ======= Debounce resize =======
-        let resizeTimeout;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(() => {
-                container.style.transition = 'none';
-                if (items.length > 0) {
-                    if (currentItem >= items.length - 1) currentItem = items.length - 2;
-                    if (currentItem <= 0) currentItem = 1;
-                    updateTranslateX();
-                }
-                setTimeout(() => {
-                    container.style.transition = 'transform 1.5s ease';
-                }, 50);
-            }, 200);
-        });
+// ======= Debounce resize =======
+let resizeTimeout;
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+        container.style.transition = 'none';
+
+        if (items.length > 0) {
+            // Corrige index fora do range
+            if (currentItem >= items.length - 1) currentItem = items.length - 2;
+            if (currentItem <= 0) currentItem = 1;
+
+            // Recalcular centralização no item atual
+            const itemWidth = items[0].offsetWidth;
+            const newTranslateX = -currentItem * itemWidth;
+
+            container.style.transform = `translateX(${newTranslateX}px)`;
+        }
+
+        // Reativa a transição depois do ajuste
+        setTimeout(() => {
+            container.style.transition = 'transform 1.5s ease';
+        }, 50);
+    }, 200);
+});
 
         // ======= Eventos de toque =======
         container.addEventListener('touchstart', startDrag);
