@@ -93,38 +93,21 @@
             isTransitioning = false;
         });
 
-        // ======= Hard reset no resize (preserva item atual) =======
+        // ======= Debounce resize =======
         let resizeTimeout;
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimeout);
-            container.style.transition = 'none';
-
             resizeTimeout = setTimeout(() => {
-                // Salva o item atual
-                const savedItem = currentItem;
-
-                // Desmarca como inicializado
-                delete container.dataset.sliderInitialized;
-
-                // Remove event listeners antigos substituindo pelo clone
-                const clone = container.cloneNode(true);
-                container.parentNode.replaceChild(clone, container);
-
-                // Recria o slider do zero
-                initSlider(clone);
-
-                // Força o slider reiniciado a voltar no mesmo item
-                requestAnimationFrame(() => {
-                    clone.style.transition = 'none';
-                    const itemWidth = clone.querySelector('.outer-container').offsetWidth;
-                    clone.style.transform = `translateX(${-savedItem * itemWidth}px)`;
-
-                    // Reativa a transição suavemente
-                    setTimeout(() => {
-                        clone.style.transition = 'transform 1.5s ease';
-                    }, 50);
-                });
-            }, 400);
+                container.style.transition = 'none';
+                if (items.length > 0) {
+                    if (currentItem >= items.length - 1) currentItem = items.length - 2;
+                    if (currentItem <= 0) currentItem = 1;
+                    updateTranslateX();
+                }
+                setTimeout(() => {
+                    container.style.transition = 'transform 1.5s ease';
+                }, 50);
+            }, 200);
         });
 
         // ======= Eventos de toque =======
