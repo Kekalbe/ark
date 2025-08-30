@@ -13,12 +13,14 @@
         let dragDistance = 0;
         const threshold = 100;
         let currentItem = 1;
+        let prevTranslate = 0; // Posição anterior
 
         // ======= Clonagem para loop infinito =======
         const cloneFirst = items[0].cloneNode(true);
         container.appendChild(cloneFirst);
         const cloneLast = items[items.length - 1].cloneNode(true);
         container.insertBefore(cloneLast, items[0]);
+
         items = [...container.querySelectorAll('.outer-container')];
 
         // ======= Funções utilitárias =======
@@ -26,12 +28,19 @@
             return items[0].offsetWidth * items.length;
         }
 
-        function updateTranslateX() {
-            container.style.transform = `translateX(${-currentItem * items[0].offsetWidth}px)`;
+        // Função para obter o valor atual do translateX
+        function getCurrentTranslateX() {
+            const matrix = new WebKitCSSMatrix(window.getComputedStyle(container).transform);
+            return matrix.m41; // Extrai o valor de translateX
         }
 
-        function getCurrentTranslateX() {
-            return new WebKitCSSMatrix(window.getComputedStyle(container).transform).m41;
+        // Atualiza o translateX de forma a manter o item atual centralizado
+        function updateTranslateX() {
+            const containerWidth = container.offsetWidth; // Largura do contêiner
+            const itemWidth = items[0].offsetWidth; // Largura do item
+            const targetPosition = -(currentItem * itemWidth) + (containerWidth / 2) - (itemWidth / 2);
+            container.style.transform = `translateX(${targetPosition}px)`;
+            prevTranslate = targetPosition;
         }
 
         // ======= Início =======
@@ -72,7 +81,6 @@
             isTransitioning = true;
             container.style.transition = 'transform 1.5s ease';
             updateTranslateX();
-
             // Fallback se transitionend não disparar
             setTimeout(() => {
                 if (isTransitioning) isTransitioning = false;
@@ -93,19 +101,28 @@
             isTransitioning = false;
         });
 
+        // ======= RESIZE HANDLER =======
+        window.addEventListener('resize', () => {
+            const itemWidth = items[0].offsetWidth;
+            const containerWidth = container.offsetWidth;
+            // Calcula a posição do item atual
+            const targetPosition = -(currentItem * itemWidth) + (containerWidth / 2) - (itemWidth / 2);
+            
+            container.style.transition = 'none'; // Desabilitar a transição durante o resize
+            container.style.transform = `translateX(${targetPosition}px)`; // Atualiza a posição
+            prevTranslate = targetPosition; // Salva a posição
+        });
+
         // ======= Debounce resize =======
         let resizeTimeout;
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimeout);
             resizeTimeout = setTimeout(() => {
-                container.style.transition = 'none';
-                if (items.length > 0) {
-                    if (currentItem >= items.length - 1) currentItem = items.length - 2;
-                    if (currentItem <= 0) currentItem = 1;
-                    updateTranslateX();
-                }
+                container.style.transition = 'none'; // Remover transições durante o resize
                 setTimeout(() => {
-                    container.style.transition = 'transform 1.5s ease';
+                    // Atualizar a posição do translateX enquanto redimensiona
+                    updateTranslateX();
+                    container.style.transition = 'transform 1.5s ease'; // Reabilitar transições
                 }, 50);
             }, 200);
         });
@@ -146,5 +163,6 @@
             initSlider(container);
         }
     });
+
     observer.observe(document.body, { childList: true, subtree: true });
 })();
