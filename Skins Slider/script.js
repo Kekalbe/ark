@@ -17,11 +17,15 @@
 
         // ======= Clonagem para loop infinito =======
         const cloneFirst = items[0].cloneNode(true);
-        container.appendChild(cloneFirst);
         const cloneLast = items[items.length - 1].cloneNode(true);
-        container.insertBefore(cloneLast, items[0]);
 
-        items = [...container.querySelectorAll('.outer-container')];
+        // Adicionar clones com delay para garantir que o layout seja calculado
+        setTimeout(() => {
+            container.appendChild(cloneFirst);
+            container.insertBefore(cloneLast, items[0]);
+            items = [...container.querySelectorAll('.outer-container')]; // Atualiza os itens
+            updateTranslateX();
+        }, 0); // Atrasar a clonagem para o próximo ciclo de renderização
 
         // ======= Funções utilitárias =======
         function updateTotalWidth() {
