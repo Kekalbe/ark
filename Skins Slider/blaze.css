@@ -407,3 +407,10 @@
 /* Celulares End */
 
 /* Parte Responsividade End */
+
+@font-face {
+  font-family: Portcullion;
+  src: url('./fonts/Portcullion.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
