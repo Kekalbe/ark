@@ -410,7 +410,7 @@
 
 @font-face {
   font-family: Portcullion;
-  src: url('./fonts/Portcullion.ttf') format('truetype');
+  src: url('https://cdn.jsdelivr.net/gh/Kekalbe/ark@e9742ca1f4373d2396b7cd9344b0074acfa149ec/Skins%20Slider/fonts/Portcullion.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
