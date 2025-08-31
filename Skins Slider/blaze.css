@@ -136,7 +136,7 @@
     font-size: clamp(0.8rem, 1.8vw, 1.2rem);
     gap: clamp(0.1rem, 1.5vw, 1.5rem);
     font-weight: bold;
-    font-family: Prociono;
+    font-family: 'Prociono';
     background-color: #d10101;
     text-align: left;
     flex-direction: row;
@@ -230,7 +230,7 @@
 
   .title-n p {
     font-size: clamp(5vw, 3vw + 6vh, 20vw);
-    --e-global-typography-primary-font-family: 'Portculliard';
+    font-family: 'Portcullion';
     font-weight: 500;
   }
   
