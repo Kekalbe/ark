@@ -8,7 +8,7 @@
 
         let isDragging = false;
         let isTransitioning = false;
-        let autoplayEnabled = false;
+        let autoplayEnabled = true;
         let startX, startTranslateX;
         let dragDistanceX = 0;
         const threshold = 50;
