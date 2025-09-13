@@ -1,3 +1,4 @@
-import "./Personagens.js";
-import "./teste1.js";
-import "./script.js";
+import './personagensSeletor/Personagens.js';
+import './slider_skins/script.js';
+import './teste1.js';
+import '../css/main.css';
