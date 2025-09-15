@@ -13,7 +13,7 @@ const personagens = [
     {
         clicar: document.getElementById('Amiya'),
         novoTextoName: 'Amiya',
-        imagem: 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@refs/heads/master/PersonagensSeletor/Amiya%20Medic/Amiya_(Medic).webp',
+        imagem: 'https://cdn.jsdelivr.net/gh/Kekalbe/ark@8fb2087cdea9e19ca1f39a1d687423a960407d71/ArkN/imgGeneral/PersonagensSeletor/Amiya%20Medic/Amiya_(Medic).webp',
         elementos: {
             name: document.querySelector('.name'),
             imagemElemento: document.querySelector('.imagem-p img')
