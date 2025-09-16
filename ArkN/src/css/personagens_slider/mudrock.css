@@ -133,7 +133,7 @@
   left: 50%;
   transform: translate(-35%, 65%);
   z-index: 3;
-  font-family: 'PT Sans';
+  font-family: 'Roboto';
   font-weight: bold;
   font-size: clamp(1.2rem, 1vw + 2vh, 3.5rem);
 }
