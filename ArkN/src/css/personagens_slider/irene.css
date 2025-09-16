@@ -129,6 +129,7 @@ overflow: hidden;
   background: linear-gradient(90deg, white 85%, black 150%);
   width: 50%;
   height: auto;
+  max-width: unset !important;
 }
 
 .cont-b2 img {
@@ -137,7 +138,6 @@ overflow: hidden;
     left: 50%;
     transform: translateX(-50%);
     width: clamp(60vh, 70vh + 50vw, 140vh);
-    max-width: unset !important;
     height: auto;
     z-index: 0;
     pointer-events: none;
