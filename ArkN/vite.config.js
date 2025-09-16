@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite';
+import cssnano from 'cssnano';
 
 export default defineConfig({
   root: 'src',
@@ -10,6 +11,15 @@ export default defineConfig({
         entryFileNames: '[name].[hash].js',
         assetFileNames: '[name].[hash].[ext]'
       }
+    }
+  },
+  css: {
+    postcss: {
+      plugins: [
+        cssnano({
+          preset: ['default', { discardImportant: false }]
+        })
+      ]
     }
   }
 });
