@@ -137,7 +137,7 @@ overflow: hidden;
     left: 50%;
     transform: translateX(-50%);
     width: clamp(60vh, 70vh + 50vw, 140vh);
-    max-width: unset;
+    max-width: unset !important;
     height: auto;
     z-index: 0;
     pointer-events: none;
