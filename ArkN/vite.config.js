@@ -1,14 +1,14 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  root: 'src', // onde estão seus arquivos JS/CSS
+  root: 'src',
   build: {
-    outDir: '../dist', // pasta de saída final
+    outDir: '../dist',
     rollupOptions: {
-      input: 'src/js/main.js', // ponto de entrada do JS
+      input: 'src/js/main.js',
       output: {
-        entryFileNames: 'main.js', // nome fixo do JS
-        assetFileNames: '[name].[ext]' // nome fixo dos assets (CSS, etc.)
+        entryFileNames: '[name].[hash].js',
+        assetFileNames: '[name].[hash].[ext]'
       }
     }
   }
