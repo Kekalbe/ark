@@ -10,7 +10,7 @@
   "devDependencies": {
     "vite": "^7.1.5",
     "postcss": "^8.4.38",
-    "cssnano": "^6.0.2"
+    "cssnano": "^7.1.1"
   },
   "keywords": [],
   "author": "",
