@@ -77,7 +77,7 @@ overflow: hidden;
   right: 0;
   bottom: 0;
   background: #373737;
-  background-image: url('https://img4.gelbooru.com/images/18/87/1887c46b7d2aca38b28f379237dcd1e4.jpg');
+  background-image: url('https://cdn.jsdelivr.net/gh/Kekalbe/ark@334282cf32eac51da372cc46a4602c927e91ad1a/ArkN/imgGeneral/IMGS%20Slider/Irene/1887c46b7d2aca38b28f379237dcd1e4.jpg');
   background-position: 50% 15%;
   background-repeat: no-repeat;
   background-size: clamp(25vw, 20vw + 20vh, 85vw) auto;
