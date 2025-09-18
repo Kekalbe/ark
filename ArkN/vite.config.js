@@ -1,9 +1,8 @@
-import { defineConfig } from 'vite';
-
 export default defineConfig({
   root: 'src',
   build: {
     outDir: '../dist',
+    emptyOutDir: true, // limpa a pasta antes de cada build
     rollupOptions: {
       input: 'src/js/main.js',
       output: {
