@@ -1,50 +1,45 @@
-async function carregarPersonagens() {
+async function S() {
     try {
-        const resposta = await fetch('https://cdn.jsdelivr.net/gh/Kekalbe/ark@e7a1941443b096556b95f787c21bb0633825d9e7/ArkN/dist/personagens.json');
-        const personagens = await resposta.json();
+        const personagens = await (await fetch(
+            "https://cdn.jsdelivr.net/gh/Kekalbe/ark@e7a1941443b096556b95f787c21bb0633825d9e7/ArkN/dist/personagens.json"
+        )).json();
 
         personagens.forEach(personagem => {
             const clicar = document.getElementById(personagem.id);
-
-            // Os elementos de destino (nome e imagem)
-            const name = document.querySelector('.name');
-            const imagemElemento = document.querySelector('.imagem-p img');
+            const nameEl = document.querySelector(".name");
+            const imgEl = document.querySelector(".imagem-p img");
 
             if (!clicar) return;
 
-            clicar.addEventListener('click', () => {
+            clicar.addEventListener("click", () => {
                 console.log(`Alterando para: ${personagem.novoTextoName}`);
 
                 // Troca de nome com animação
-                if (name) {
-                    name.classList.remove('animatingTexto');
-                    void name.offsetWidth; // força reflow
-                    name.textContent = personagem.novoTextoName;
-                    name.classList.add('animatingTexto');
+                if (nameEl) {
+                    nameEl.classList.remove("animatingTexto");
+                    void nameEl.offsetWidth; // força reflow
+                    nameEl.textContent = personagem.novoTextoName;
+                    nameEl.classList.add("animatingTexto");
                 }
 
-                // Troca de imagem com animação
-                if (imagemElemento) {
-                    imagemElemento.classList.remove('animatingImagem');
-                    void imagemElemento.offsetWidth;
-
-                    imagemElemento.src = personagem.imagem;
-                    imagemElemento.srcset = personagem.imagem;
-
-                    imagemElemento.onload = () => {
-                        imagemElemento.classList.add('animatingImagem');
+                // Pré-carrega a imagem antes de atualizar o elemento real
+                if (imgEl) {
+                    const tmpImg = new Image();
+                    tmpImg.src = personagem.imagem;
+                    tmpImg.onload = () => {
+                        imgEl.classList.remove("animatingImagem");
+                        void imgEl.offsetWidth; // força reflow
+                        imgEl.src = tmpImg.src;
+                        imgEl.srcset = tmpImg.src;
+                        imgEl.classList.add("animatingImagem");
                     };
-
-                    if (imagemElemento.complete) {
-                        imagemElemento.classList.add('animatingImagem');
-                    }
                 }
             });
         });
 
     } catch (erro) {
-        console.error('Erro ao carregar personagens:', erro);
+        console.error("Erro ao carregar personagens:", erro);
     }
 }
 
-carregarPersonagens();
+S();
