@@ -2,9 +2,10 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   root: 'src',
+  publicDir: '../public', // garante que Vite copie da pasta certa
   build: {
     outDir: '../dist',
-    emptyOutDir: true, // limpa a pasta antes de cada build
+    emptyOutDir: true,
     rollupOptions: {
       input: 'src/js/main.js',
       output: {
