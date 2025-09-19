@@ -22,15 +22,26 @@ async function S() {
                     nameEl.classList.add("animatingTexto");
                 }
 
-                // Troca imediata da imagem
+                // Troca de imagem sem piscada
                 if (imgEl) {
-                    imgEl.classList.remove("animatingImagem");
-                    void imgEl.offsetWidth;
-                    imgEl.src = personagem.imagem;
-                    imgEl.srcset = personagem.imagem;
-                    imgEl.classList.add("animatingImagem");
+                    const novaImg = new Image();
+                    novaImg.src = personagem.imagem;
+                    novaImg.srcset = personagem.imagem;
 
-                    // Pré-carrega próxima imagem para evitar flicker futuro
+                    novaImg.onload = () => {
+                        imgEl.classList.remove("animatingImagem");
+                        void imgEl.offsetWidth;
+                        imgEl.src = novaImg.src;
+                        imgEl.srcset = novaImg.srcset;
+                        imgEl.classList.add("animatingImagem");
+                    };
+
+                    // Caso a imagem já esteja no cache
+                    if (novaImg.complete) {
+                        novaImg.onload();
+                    }
+
+                    // Pré-carrega próxima imagem (opcional)
                     const tmpImg = new Image();
                     tmpImg.src = personagem.imagem;
                 }
