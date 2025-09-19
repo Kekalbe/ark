@@ -4,6 +4,7 @@ export default defineConfig({
   root: 'src',
   build: {
     outDir: '../dist',
+    publicDir: '../public', // garante que Vite copie da pasta certa
     emptyOutDir: true,
     rollupOptions: {
       input: 'src/js/main.js',
