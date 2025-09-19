@@ -6,6 +6,7 @@ export default defineConfig({
   build: {
     outDir: '../dist',
     emptyOutDir: true,
+    cssCodeSplit: true, // separa CSS em arquivo próprio
     rollupOptions: {
       input: 'src/js/main.js',
       output: {
