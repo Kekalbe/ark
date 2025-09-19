@@ -1,6 +1,6 @@
 async function carregarPersonagens() {
     try {
-        const resposta = await fetch('/personagens.json');
+        const resposta = await fetch('public/personagens.json');
         const personagens = await resposta.json();
 
         personagens.forEach(personagem => {
