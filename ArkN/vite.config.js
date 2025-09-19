@@ -2,17 +2,23 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   root: 'src',
-  publicDir: '../public', // garante que Vite copie da pasta certa
   build: {
     outDir: '../dist',
     emptyOutDir: true,
-    cssCodeSplit: true, // separa CSS em arquivo próprio
     rollupOptions: {
       input: 'src/js/main.js',
       output: {
         entryFileNames: '[name].[hash].js',
-        assetFileNames: '[name].[hash].[ext]'
+        assetFileNames: ({ name }) => {
+          if (name && name.endsWith('.css')) {
+            return 'css/[name].[hash].[ext]'; // coloca o CSS no dist/css/
+          }
+          return '[name].[hash].[ext]';
+        }
       }
     }
-  }
+  },
+  css: {
+    devSourcemap: true,
+  },
 });
