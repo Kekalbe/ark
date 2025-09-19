@@ -1,6 +1,6 @@
 async function carregarPersonagens() {
     try {
-        const resposta = await fetch('/personagens.json');
+        const resposta = await fetch('https://cdn.jsdelivr.net/gh/Kekalbe/ark@e7a1941443b096556b95f787c21bb0633825d9e7/ArkN/dist/personagens.json');
         const personagens = await resposta.json();
 
         personagens.forEach(personagem => {
