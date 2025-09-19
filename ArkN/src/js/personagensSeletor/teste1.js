@@ -17,22 +17,22 @@ async function S() {
                 // Troca de nome com animação
                 if (nameEl) {
                     nameEl.classList.remove("animatingTexto");
-                    void nameEl.offsetWidth; // força reflow
+                    void nameEl.offsetWidth;
                     nameEl.textContent = personagem.novoTextoName;
                     nameEl.classList.add("animatingTexto");
                 }
 
-                // Pré-carrega a imagem antes de atualizar o elemento real
+                // Troca imediata da imagem
                 if (imgEl) {
+                    imgEl.classList.remove("animatingImagem");
+                    void imgEl.offsetWidth;
+                    imgEl.src = personagem.imagem;
+                    imgEl.srcset = personagem.imagem;
+                    imgEl.classList.add("animatingImagem");
+
+                    // Pré-carrega próxima imagem para evitar flicker futuro
                     const tmpImg = new Image();
                     tmpImg.src = personagem.imagem;
-                    tmpImg.onload = () => {
-                        imgEl.classList.remove("animatingImagem");
-                        void imgEl.offsetWidth; // força reflow
-                        imgEl.src = tmpImg.src;
-                        imgEl.srcset = tmpImg.src;
-                        imgEl.classList.add("animatingImagem");
-                    };
                 }
             });
         });
