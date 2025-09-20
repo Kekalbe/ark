@@ -1,7 +1,8 @@
 async function S() {
     try {
+        // Fetch sempre do branch main (ou master) com cache-busting
         const personagens = await (await fetch(
-            "https://cdn.jsdelivr.net/gh/Kekalbe/ark@e7a1941443b096556b95f787c21bb0633825d9e7/ArkN/dist/personagens.json"
+            "https://cdn.jsdelivr.net/gh/Kekalbe/ark/ArkN/dist/personagens.json?t=" + Date.now()
         )).json();
 
         personagens.forEach(personagem => {
